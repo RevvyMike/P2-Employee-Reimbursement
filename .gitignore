@@ -71,6 +71,10 @@ buildNumber.properties
 # Ignore code-workspaces
 *.code-workspace
 
-# Ignore .exe
+# Ignore the driver
+*.exe
+
+#Ignore hibernate.cfg.xml
+*hibernate.cfg.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/java,maven,visualstudiocode
