@@ -75,7 +75,7 @@ buildNumber.properties
 *.exe
 
 #Ignore hibernate.cfg.xml
-*hibernate.cfg.xml
+hibernate.cfg.xml
 
 # Ignore .Json
 *.json
