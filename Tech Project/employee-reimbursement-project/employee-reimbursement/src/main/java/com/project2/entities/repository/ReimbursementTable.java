@@ -1,4 +1,4 @@
-package com.project2.entities;
+package com.project2.entities.repository;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,36 +6,38 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "manager_table")
-public class ManagerTable {
+@Table(name = "reimbursement")
+public class ReimbursementTable {
     
-    // fields that represent the data in our database
+    // field represent the data in our table
     @Id
     @GeneratedValue
     private int id;
     private String employeeName;
     private int reimbursementRequest;
     private String requestReason;
-
+    
+    
     // empty constructor for hibernate
-    public ManagerTable(){}
+    public ReimbursementTable() {}
 
-    // partial constructor will help make sure we don'y accidentally set a bad id
-    public ManagerTable(String employeeName, int reimbursementRequest, String requestReason) {
+
+    // partial constructor to ensure we don't assign a bad id
+    public ReimbursementTable(String employeeName, int reimbursementRequest, String requestReason) {
         this.employeeName = employeeName;
         this.reimbursementRequest = reimbursementRequest;
         this.requestReason = requestReason;
     }
 
     // This constructor will allow our code to fully create ManagerTable objects from pre-existing data in our table
-    public ManagerTable(int id, String employeeName, int reimbursementRequest, String requestReason) {
-        this.id = id;                                            // primary key
-        this.employeeName = employeeName;                   // employee name
-        this.reimbursementRequest = reimbursementRequest;   // dollar request amount 
-        this.requestReason = requestReason;                 // typed out reason for reimbursement
+    public ReimbursementTable(int id, String employeeName, int reimbursementRequest, String requestReason) {
+        this.id = id;
+        this.employeeName = employeeName;
+        this.reimbursementRequest = reimbursementRequest;
+        this.requestReason = requestReason;
     }
 
-    // getters & setters
+
     public int getId() {
         return id;
     }
@@ -75,13 +77,19 @@ public class ManagerTable {
         this.requestReason = requestReason;
     }
 
-    // this method allows us to better see what data we are working with.
+
     @Override
     public String toString() {
-        return "ManagerTable [Id=" + id + ", employeeName=" + employeeName + ", reimbursementRequest="
+        return "ReimbursementTable [employeeName=" + employeeName + ", id=" + id + ", reimbursementRequest="
                 + reimbursementRequest + ", requestReason=" + requestReason + "]";
     }
 
+
     
 
+
+
+
+
+    
 }
