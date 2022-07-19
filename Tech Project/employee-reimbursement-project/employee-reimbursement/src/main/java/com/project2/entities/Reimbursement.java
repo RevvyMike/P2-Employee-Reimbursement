@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "reimbursement")
-public class ReimbursementTable {
+public class Reimbursement {
     
     // field represent the data in our table
     @Id
@@ -19,25 +19,25 @@ public class ReimbursementTable {
     
     
     // empty constructor for hibernate
-    public ReimbursementTable() {}
+    public Reimbursement() {}
 
 
     // partial constructor to ensure we don't assign a bad id
-    public ReimbursementTable(String employeeName, int reimbursementRequest, String requestReason) {
+    public Reimbursement(String employeeName, int reimbursementRequest, String requestReason) {
         this.employeeName = employeeName;
         this.reimbursementRequest = reimbursementRequest;
         this.requestReason = requestReason;
     }
 
     // This constructor will allow our code to fully create ManagerTable objects from pre-existing data in our table
-    public ReimbursementTable(int id, String employeeName, int reimbursementRequest, String requestReason) {
+    public Reimbursement(int id, String employeeName, int reimbursementRequest, String requestReason) {
         this.id = id;
         this.employeeName = employeeName;
         this.reimbursementRequest = reimbursementRequest;
         this.requestReason = requestReason;
     }
 
-
+    //  getters & setters
     public int getId() {
         return id;
     }
@@ -77,7 +77,7 @@ public class ReimbursementTable {
         this.requestReason = requestReason;
     }
 
-
+    // this method is to help us better see what data we are working with our tables.
     @Override
     public String toString() {
         return "ReimbursementTable [employeeName=" + employeeName + ", id=" + id + ", reimbursementRequest="
