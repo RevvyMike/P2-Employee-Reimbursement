@@ -1,5 +1,7 @@
 package com.project2.repository;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -22,9 +24,13 @@ public class AAATest {
 
     @Test
     public void createRequestPositiveTest(){
-        AAA testLogin = new AAA("mikeyangelo", "pizzababy", "employee", "Michaelangelo", 600, "Family vacation baby");
-        AAA result = aaaDao.createRequest(testLogin);
+        AAA testRequest = new AAA("mikeyangelo", "pizzababy", "employee", "Michaelangelo", 600, "Family vacation baby");
+        AAA result = aaaDao.createRequest(testRequest);
         Assert.assertNotNull(result.getId());
     }
-
+    @Test
+    public void getAllRequestsPositiveTest(){
+        List<AAA> requestList = aaaDao.getAllRequests();
+        Assert.assertTrue(requestList.size() >= 3);
+    }
 }
