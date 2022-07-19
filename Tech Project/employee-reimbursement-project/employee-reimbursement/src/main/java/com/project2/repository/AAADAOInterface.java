@@ -7,4 +7,17 @@ public interface AAADAOInterface {
         will by default be considered public and abstract.
      */
 
+// create
+
+
+// reads
+
+
+// updates
+
+
+// deletes
+
+
+
 }
