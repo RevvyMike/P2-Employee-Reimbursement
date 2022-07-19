@@ -1,4 +1,4 @@
-package com.project2.entities.repository;
+package com.project2.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
