@@ -24,11 +24,11 @@ public interface AAADAOInterface {
     
 //reads
 
-//     List<AAATable> getAllRequests();
+    List<AAA> getAllRequests();
  
 // // updates
 
-//     AAATable updateRequest();
+//     AAA updateRequest();
 
 // // deletes
 
