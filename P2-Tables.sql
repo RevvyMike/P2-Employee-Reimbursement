@@ -1,6 +1,6 @@
  --maanger table--
 drop table AAA;
-create table AAA (id serial primary key, username varchar(50), user_password varchar(50), roles varchar(50), employee_name varchar(50), request_reason varchar(100));
+create table AAA (id serial primary key, username varchar(50), user_password varchar(50), roles varchar(50), employee_name varchar(50), amount_requested integer, decision varchar(100));
 
 select * from AAA; 
 

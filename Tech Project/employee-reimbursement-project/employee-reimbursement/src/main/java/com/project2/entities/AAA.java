@@ -8,7 +8,7 @@ import javax.persistence.Table;
 // AAA stands for amphibious assault association
 @Entity
 @Table(name = "aaa" )
-public class AAATable {
+public class AAA {
     
         @Id
         @GeneratedValue
@@ -17,33 +17,36 @@ public class AAATable {
         private String userPassword;
         private String roles;
         private String employeeName;
-        private String requestReason;
+        private int amountRequested;
+        private String decision;
         
         //empty constructor to initialize hibernate
-        public AAATable() {}
+        public AAA() {}
 
-
-        // partial constructor with no id to make sure we don't assign a bad ID
-        public AAATable(String username, String userPassword, String roles, String employeeName, String requestReason) {
+         // partial constructor with no id to make sure we don't assign a bad ID        
+        public AAA(String username, String userPassword, String roles, String employeeName, int amountRequested,
+                String decision) {
             this.username = username;
             this.userPassword = userPassword;
             this.roles = roles;
             this.employeeName = employeeName;
-            this.requestReason = requestReason;
+            this.amountRequested = amountRequested;
+            this.decision = decision;
         }
 
         // This constructor will allow our code to fully create AAATable (employee/manager) objects from pre-existing data in our table
-        public AAATable(int id, String username, String userPassword, String roles, String employeeName,
-                String requestReason) {
+        public AAA(int id, String username, String userPassword, String roles, String employeeName, int amountRequested,
+                String decision) {
             this.id = id;
             this.username = username;
             this.userPassword = userPassword;
             this.roles = roles;
             this.employeeName = employeeName;
-            this.requestReason = requestReason;
+            this.amountRequested = amountRequested;
+            this.decision = decision;
         }
 
-
+        // getters & setters
         public int getId() {
             return id;
         }
@@ -94,21 +97,35 @@ public class AAATable {
         }
 
 
-        public String getRequestReason() {
-            return requestReason;
+        public int getAmountRequested() {
+            return amountRequested;
         }
 
 
-        public void setRequestReason(String requestReason) {
-            this.requestReason = requestReason;
+        public void setAmountRequested(int amountRequested) {
+            this.amountRequested = amountRequested;
+        }
+
+
+        public String getDecision() {
+            return decision;
+        }
+
+
+        public void setDecision(String decision) {
+            this.decision = decision;
         }
 
         // this method is to help us better see what data we are working with our tables.
         @Override
         public String toString() {
-            return "AAA [employeeName=" + employeeName + ", id=" + id + ", requestReason=" + requestReason + ", roles="
-                    + roles + ", userPassword=" + userPassword + ", username=" + username + "]";
+            return "AAA [amountRequested=" + amountRequested + ", decision=" + decision + ", employeeName="
+                    + employeeName + ", id=" + id + ", roles=" + roles + ", userPassword=" + userPassword
+                    + ", username=" + username + "]";
         }
+
+
+       
 
 
         

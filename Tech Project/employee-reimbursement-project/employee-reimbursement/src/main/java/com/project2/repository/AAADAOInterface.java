@@ -1,5 +1,15 @@
 package com.project2.repository;
 
+import java.util.List;
+
+import com.project2.entities.AAA;
+
+
+
+
+
+
+
 public interface AAADAOInterface {
     
     /*
@@ -9,15 +19,20 @@ public interface AAADAOInterface {
 
 // create
 
+     // at some point We will need to come back and deice on the parameters
+    AAA createRequest(AAA newRequest);
+    
+//reads
 
-// reads
+//     List<AAATable> getAllRequests();
+ 
+// // updates
 
+//     AAATable updateRequest();
 
-// updates
+// // deletes
 
-
-// deletes
-
+//     boolean removeRequest();
 
 
 }
