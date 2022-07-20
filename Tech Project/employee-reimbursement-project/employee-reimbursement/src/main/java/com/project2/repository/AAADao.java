@@ -25,6 +25,22 @@ public class AAADao implements AAADAOInterface {
         return requestList;
 
     }
+
+    @Override
+    public AAA updateRequest(AAA updatedRequest) {
+        HibernateUtil.beginTransaction();
+        HibernateUtil.getSession().update(updatedRequest);
+        HibernateUtil.endTransaction();
+        return updatedRequest;
+    }
+
+    @Override
+    public boolean removeRequest(AAA requestToBeDeleted) {
+        HibernateUtil.beginTransaction();
+        HibernateUtil.getSession().delete(requestToBeDeleted);
+        HibernateUtil.endTransaction();
+        return true;
+    }
     
     
 }

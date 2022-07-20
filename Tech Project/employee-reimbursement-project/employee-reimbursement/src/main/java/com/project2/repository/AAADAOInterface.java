@@ -19,20 +19,20 @@ public interface AAADAOInterface {
 
 // create
 
-     // at some point We will need to come back and deice on the parameters
+    
     AAA createRequest(AAA newRequest);
     
 //reads
 
     List<AAA> getAllRequests();
  
-// // updates
+// updates
 
-//     AAA updateRequest();
+    AAA updateRequest(AAA updatedRequest);
 
-// // deletes
+// deletes
 
-//     boolean removeRequest();
+    boolean removeRequest(AAA requestToBeDeleted);
 
 
 }
