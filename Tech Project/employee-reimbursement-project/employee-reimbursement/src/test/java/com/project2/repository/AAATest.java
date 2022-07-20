@@ -28,8 +28,6 @@ public class AAATest {
          AAA setupUpdateAAA = new AAA();
     }
 
-
-
     @Test
     public void createRequestPositiveTest(){
         AAA testRequest = new AAA("mikeyangelo", "pizzababy", "employee", "Michaelangelo", 600, "Family vacation baby");
