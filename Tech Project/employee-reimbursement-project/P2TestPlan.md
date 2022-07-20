@@ -24,10 +24,8 @@ Requests:
 
 - As a user I want to sign in to view my homepage
     - Unit Tests
-        - sign into manager page
-            - method: manLogin()
-        - sign into employee page  <!-- Might be an unnecessary extra step  -->
-            - method: empLogin()
+        - sign into user login
+            - method: userLogin()
     - Service Tests
         - incorrect credentials
             - method: checkForLogin()
@@ -51,7 +49,7 @@ Requests:
     - Service Tests
         - can't deny without reason
             - method: checkForReason()
--  As a user I want to log out
+-  As a user I want to log out (No NEED TO TEST)
     - Unit Tests
         - log out of user page
             - method: logout()
