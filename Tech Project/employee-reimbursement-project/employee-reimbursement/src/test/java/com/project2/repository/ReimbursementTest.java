@@ -39,7 +39,7 @@ public class ReimbursementTest {
 
     @Test
     public void removedReimbursementPositiveTest(){
-        Reimbursement removedReimbursement = new Reimbursement(47,"102",700,"airfair");
+        Reimbursement removedReimbursement = new Reimbursement(45,"michael jackson",300,"moving");
         Boolean result = reimbursementDAO.removedReimbursement(removedReimbursement);
         Assert.assertTrue(result);
     }
