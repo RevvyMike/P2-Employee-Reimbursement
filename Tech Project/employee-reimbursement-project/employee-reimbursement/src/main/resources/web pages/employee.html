@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>HTML Employee Table</title>
+  </head>
+  <script src="script.js"></script>
+<body>
+    <img src="tmnt.jpg" alt>
+    <div class="mainTable">
+         <h1>Requests</h1>
+         <table id="table" border="1">
+
+          <tr>
+            <th>Employee Id</th>
+            <th>First Name</th>
+            <th>Request Amount</th>
+            <th>Request Description</th>
+          </tr>
+
+          <tr>
+            <td>01</td>
+            <td>Raphael</td>
+            <td>$800</td>
+            <td>Hotel and Plane Ticket</td>
+          </tr>
+
+          <tr>
+            <td>02</td>
+            <td>Leonardo</td>
+            <td>$750</td>
+            <td>Airfare, Taxi, Hotel stay</td>
+          </tr>
+
+          <tr>
+            <td>03</td>
+            <td>Donatello</td>
+            <td>$850</td>
+            <td>Fuel, Hotel</td>
+          </tr>
+
+          <tr>
+            <td>04</td>
+            <td>Michelangelo</td>
+            <td>$900</td>
+            <td>Fuel, Hotel, Pizza</td>
+          </tr>
+
+          <tr>
+            <td>05</td>
+            <td>April</td>
+            <td>$950</td>
+            <td>Bail money for Michelangelo and Casey Jones</td>
+          </tr>
+         </table>
+    </div>
+
+    <div class="updateBtn">
+        <button onclick="editTableDisplay()">Update Requests</button>
+    </div>
+
+    <div class="editTable">
+        <div class="left">First Name: </div><div><input type="text" name="fname" id="fname"></div><br>
+        <div class="left">Request Amount: </div><div><input type="text" name="request" id="request"></div><br>
+        <div class="left">Request Description: </div><div><input type="text" name="description" id="description"></div>
+        <button onclick="editRow()" class="editRowBtn">Update</button><br>
+    </div>
+
+    
+</body>
+</html>
+
+
