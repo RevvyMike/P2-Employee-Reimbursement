@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <title>Manager_Page</title>
 
@@ -8,7 +10,7 @@
         table,
         tr, th 
         {
-           padding: 10px;
+           padding: 15px;
            border: 2px solid rgb(7, 188, 34);
            border-collapse: collapse;
    }
@@ -16,11 +18,13 @@
    </style>
 </head>
 <body>
+    <img src="tmnt.png"alt>
  
     <table id = 'aaa'>
         <tr>
             <th>
-                Employee Id</th> <th>Employee Username</th> <th>Role</th> <th>Employee Name</th> <th>Amount Requested</th> <th>Decision</th>
+                Employee Id</th> <th>Employee Username</th><th>Employee Password</th> <th>Role</th>
+                
         </tr>
         
 
@@ -28,9 +32,9 @@
 
     </table>
     <select name="Reimbursment Request" id="rRequest"></select>
-    <button>Approve</button> <button>Deny</button>
+    <button onclick="Approve()" id="approve">Approve</button> <button onclick="Deny()" id="deny">Deny</button>
 
 
-<button>LogOut</button>
+<button onclick="Logout()">LogOut</button>
 </body>
 </html>
