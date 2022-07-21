@@ -30,16 +30,16 @@ public class EmployeesService implements EmployeesServiceInterface{
         }
     }
 
-    // @Override
-    // public boolean checkForLogin(Employees credentials){
-    //     List<Employees> allCredentials = this.employeeDao.getAllEmployees;
-    //     for(Employees creds : allCredentials){
-    //         if(creds.getUsername.equals(credentials.getUsername) && creds.getPassword.equals(credentials.getPassword)){
-    //             return true;
-    //         }
-    //     }
-    //     return false
-    // }
+    @Override
+    public boolean checkForLogin(Employees credentials){
+        List<Employees> allCredentials = this.employeeDao.getAllEmployees;
+        for(Employees creds : allCredentials){
+            if(creds.getUsername.equals(credentials.getUsername) && creds.getPassword.equals(credentials.getPassword)){
+                return true;
+            }
+        }
+        return false
+    }
 
 
 
