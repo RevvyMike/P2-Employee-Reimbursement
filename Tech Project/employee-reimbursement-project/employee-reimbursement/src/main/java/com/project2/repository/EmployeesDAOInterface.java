@@ -2,7 +2,7 @@ package com.project2.repository;
 
 import java.util.List;
 
-import com.project2.entities.AAA;
+import com.project2.entities.Employees;
 
 
 
@@ -10,7 +10,7 @@ import com.project2.entities.AAA;
 
 
 
-public interface AAADAOInterface {
+public interface EmployeesDAOInterface {
     
     /*
         This interface is where we will declare the methods that we need to test. all methods created here 
@@ -20,19 +20,19 @@ public interface AAADAOInterface {
 // create
 
     
-    AAA createRequest(AAA newRequest);
+    Employees createEmployees(Employees newEmployee);
     
 //reads
 
-    List<AAA> getAllRequests();
+    List<Employees> getAllEmployees();
  
 // updates
 
-    AAA updateRequest(AAA updatedRequest);
+    Employees updateEmployees(Employees updatedEmployee);
 
 // deletes
 
-    boolean removeRequest(AAA requestToBeDeleted);
+    boolean removeEmployees(Employees employeeToBeDeleted);
 
 
 }
