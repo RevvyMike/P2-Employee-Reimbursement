@@ -19,6 +19,7 @@ public class ReimbursementDao implements ReimbursementDAOInterface {
     public List<Reimbursement> getAllRequests(){
         HibernateUtil.beginTransaction();
         List<Reimbursement> request = HibernateUtil.getSession().createQuery("from Reimbursement", Reimbursement.class).getResultList();
+        HibernateUtil.endTransaction();
         return request;
         
     }
@@ -34,7 +35,7 @@ public class ReimbursementDao implements ReimbursementDAOInterface {
     @Override
     public boolean removedReimbursement(Reimbursement removedReimbursement) {
         HibernateUtil.beginTransaction();
-        HibernateUtil.getSession().delete(removedReimbursement(removedReimbursement));
+        HibernateUtil.getSession().delete(removedReimbursement);
         HibernateUtil.endTransaction();
         return true;
     }
