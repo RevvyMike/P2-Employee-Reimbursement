@@ -10,7 +10,7 @@ import com.project2.entities.Employees;
 
 public class EmployeesTest {
  
-    // Here is where we're going to test the AAATableDAO
+    // Here is where we're going to test the EmployeeDAO
 
     // Declared as an interface
     public static EmployeesDAOInterface employeeDao;
@@ -25,26 +25,26 @@ public class EmployeesTest {
          set up my test environment for future tests.
          */
 
-         Employees setupUpdateEmployee = new Employees(28, "bluenardo", "Leonardo", "employee");
+         Employees setupUpdateEmployee = new Employees(-1, "bluenardo", "Leonardo", "employee");
          employeeDao.updateEmployees(setupUpdateEmployee);
     }
 
     @Test
     public void createEmployeesPositiveTest(){
-        Employees testEmployee = new Employees("aoneil", "thegirl", "employee");
+        Employees testEmployee = new Employees("vicente", "vangoh", "employee in training");
         Employees result = employeeDao.createEmployees(testEmployee);
         Assert.assertNotNull(result.getId());
     }
     
     @Test
     public void getAllEmployeesPositiveTest(){
-        List<Employees> requestList = employeeDao.getAllEmployees();
-        Assert.assertTrue(requestList.size() >= 3);
+        List<Employees> employeeList = employeeDao.getAllEmployees();
+        Assert.assertTrue(employeeList.size() >= 3);
     }
 
     @Test
     public void updatedEmployeesPositiveTest(){
-        Employees updatedEmployee = new Employees(29, "donnyboy", "purple", "employee");
+        Employees updatedEmployee = new Employees(-6, "donnyboy", "purple", "employee");
         Employees result = employeeDao.updateEmployees(updatedEmployee);
         Assert.assertEquals("donnyboy", result.getUsername());
 
@@ -52,7 +52,7 @@ public class EmployeesTest {
 
     @Test
     public void removeEmployeesPositiveTest(){
-        Employees requestToBeDeleted = new Employees(29, "donnyboy", "purple", "employee");
+        Employees requestToBeDeleted = new Employees(-7, "mike mike", "mike mike", "defeated");
         boolean result = employeeDao.removeEmployees(requestToBeDeleted);
         Assert.assertTrue(result);
     }

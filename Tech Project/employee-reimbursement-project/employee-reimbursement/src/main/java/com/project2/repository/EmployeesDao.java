@@ -17,13 +17,21 @@ public class EmployeesDao implements EmployeesDAOInterface {
         
     }
 
+    // @Override
+    // public List<Employees> getAllEmployees() {
+    //     HibernateUtil.beginTransaction();
+    //     List<Employees> requestList = HibernateUtil.getSession().createQuery("from aaa", Employees.class).getResultList();
+    //     HibernateUtil.endTransaction();
+    //     return requestList;
+
+    // }
+
     @Override
-    public List<Employees> getAllEmployees() {
+    public List<Employees> getAllEmployees(){
         HibernateUtil.beginTransaction();
-        List<Employees> requestList = HibernateUtil.getSession().createQuery("from aaa", Employees.class).getResultList();
+        List<Employees> requestList = HibernateUtil.getSession().createQuery("from Employees", Employees.class).getResultList();
         HibernateUtil.endTransaction();
         return requestList;
-
     }
 
     @Override
