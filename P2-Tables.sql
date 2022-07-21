@@ -1,12 +1,12 @@
  --maanger table--
-drop table AAA;
-create table AAA (id serial primary key, username varchar(50), user_password varchar(50), roles varchar(50), employee_name varchar(50), amount_requested integer, decision varchar(100));
+--drop table AAA;
+create table AAA (id serial primary key, username varchar(50), user_password varchar(50), roles varchar(50));
 
 select * from AAA; 
 
---employee table--
+--reimbursement table--
 drop table reimbursement;
-create table reimbursement (id serial primary key, employee_name varchar(50), reimbursement_request integer, request_reason varchar(100));
+create table reimbursement (id serial primary key, employee_id int references aaa.id, reimbursement_request integer, request_reason varchar(100));
 
 select * from reimbursement;
 
