@@ -31,9 +31,9 @@ public class Reimbursement {
     }
 
     // This constructor will allow our code to fully create ManagerTable objects from pre-existing data in our table
-    public Reimbursement(int id, String employeename, int reimbursement_request, String request_reason) {
+    public Reimbursement(int id, String employee_name, int reimbursement_request, String request_reason) {
         this.id = id;
-        this.employee_name = employeename;
+        this.employee_name = employee_name;
         this.reimbursement_amount = reimbursement_request;
         this.request_reason = request_reason;
     }
