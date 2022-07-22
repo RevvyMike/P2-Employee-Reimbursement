@@ -31,9 +31,9 @@ public class ReimbursementTest {
 
     @Test
     public void updateReimbursementPositiveTest(){
-        Reimbursement updateReimbursement = new Reimbursement(62,"april", 444,"fuel surcharge");
+        Reimbursement updateReimbursement = new Reimbursement(66,"april", 444,"fuel surcharge");
         Reimbursement result = reimbursementDAO.updateReimbursement(updateReimbursement);
-        Assert.assertEquals(62, result.getId());
+        Assert.assertEquals(66, result.getId());
     }
 
     @Test

@@ -18,7 +18,7 @@ public class ReimbursementServices implements ReimbursementServiceInterface {
         if (request_reason.getRequestReason().length()<= 500){
             return true;
         } else {
-            return false;
+            throw new InvalidRequest("Request reason exceeds length");
         }
     }
 
