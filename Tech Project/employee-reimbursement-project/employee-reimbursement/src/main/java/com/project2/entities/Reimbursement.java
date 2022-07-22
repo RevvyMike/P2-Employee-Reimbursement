@@ -14,9 +14,9 @@ public class Reimbursement {
     @Id
     @GeneratedValue
     private int id;
-    private String employeeName;
-    private int reimbursementRequest;
-    private String requestReason;
+    private String employee_name;
+    private int reimbursement_amount;
+    private String request_reason;
     
     
     // empty constructor for hibernate
@@ -24,18 +24,18 @@ public class Reimbursement {
 
 
     // partial constructor to ensure we don't assign a bad id
-    public Reimbursement(String employeeName, int reimbursementRequest, String requestReason) {
-        this.employeeName = employeeName;
-        this.reimbursementRequest = reimbursementRequest;
-        this.requestReason = requestReason;
+    public Reimbursement(String employee_name, int reimbursement_amount, String request_reason) {
+        this.employee_name = employee_name;
+        this.reimbursement_amount = reimbursement_amount;
+        this.request_reason = request_reason;
     }
 
     // This constructor will allow our code to fully create ManagerTable objects from pre-existing data in our table
-    public Reimbursement(int id, String employeeName, int reimbursementRequest, String requestReason) {
+    public Reimbursement(int id, String employeename, int reimbursement_request, String request_reason) {
         this.id = id;
-        this.employeeName = employeeName;
-        this.reimbursementRequest = reimbursementRequest;
-        this.requestReason = requestReason;
+        this.employee_name = employeename;
+        this.reimbursement_amount = reimbursement_request;
+        this.request_reason = request_reason;
     }
 
     //  getters & setters
@@ -50,39 +50,39 @@ public class Reimbursement {
 
 
     public String getEmployeeName() {
-        return employeeName;
+        return employee_name;
     }
 
 
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
+    public void setEmployeeName(String employee_name) {
+        this.employee_name = employee_name;
     }
 
 
     public int getReimbursementRequest() {
-        return reimbursementRequest;
+        return reimbursement_amount;
     }
 
 
-    public void setReimbursementRequest(int reimbursementRequest) {
-        this.reimbursementRequest = reimbursementRequest;
+    public void setReimbursementRequest(int reimbursement_request) {
+        this.reimbursement_amount = reimbursement_request;
     }
 
 
     public String getRequestReason() {
-        return requestReason;
+        return request_reason;
     }
 
 
-    public void setRequestReason(String requestReason) {
-        this.requestReason = requestReason;
+    public void setRequestReason(String request_reason) {
+        this.request_reason = request_reason;
     }
 
     // this method is to help us better see what data we are working with our tables.
     @Override
     public String toString() {
-        return "ReimbursementTable [employeeName=" + employeeName + ", id=" + id + ", reimbursementRequest="
-                + reimbursementRequest + ", requestReason=" + requestReason + "]";
+        return "ReimbursementTable [employeename=" + employee_name + ", id=" + id + ", reimbursement_amount="
+                + reimbursement_amount + ", request_reason=" + request_reason + "]";
     }
 
     

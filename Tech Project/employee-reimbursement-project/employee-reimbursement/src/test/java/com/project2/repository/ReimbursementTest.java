@@ -18,7 +18,7 @@ public class ReimbursementTest {
 
     @Test
     public void createReimbursementPositiveTest(){
-        Reimbursement testReimbursement = new Reimbursement("104",300,"train ticket");
+        Reimbursement testReimbursement = new Reimbursement("david",400,"fuel");
         Reimbursement result = reimbursementDAO.createReimbursement(testReimbursement);
         Assert.assertNotNull(result.getId());
     }
@@ -31,15 +31,14 @@ public class ReimbursementTest {
 
     @Test
     public void updateReimbursementPositiveTest(){
-        Reimbursement updateReimbursement = new Reimbursement(45,"michael jackson",300,"moving");
+        Reimbursement updateReimbursement = new Reimbursement(62,"april", 444,"fuel surcharge");
         Reimbursement result = reimbursementDAO.updateReimbursement(updateReimbursement);
-        Assert.assertEquals(45, result.getId());
+        Assert.assertEquals(62, result.getId());
     }
-
 
     @Test
     public void removedReimbursementPositiveTest(){
-        Reimbursement removedReimbursement = new Reimbursement(45,"michael jackson",300,"moving");
+        Reimbursement removedReimbursement = new Reimbursement(62,"april",444,"fuel surcharge");
         Boolean result = reimbursementDAO.removedReimbursement(removedReimbursement);
         Assert.assertTrue(result);
     }
