@@ -4,73 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>HTML Employee Table</title>
-  </head>
-  <script src="script.js"></script>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Reimbursement Request</title>
+</head>
 <body>
-    <img src="tmnt.jpg" alt>
-    <div class="mainTable">
-         <h1>Requests</h1>
-         <table id="table" border="1">
-
-          <tr>
-            <th>Employee Id</th>
-            <th>First Name</th>
-            <th>Request Amount</th>
-            <th>Request Description</th>
-          </tr>
-
-          <tr>
-            <td>01</td>
-            <td>Raphael</td>
-            <td>$800</td>
-            <td>Hotel and Plane Ticket</td>
-          </tr>
-
-          <tr>
-            <td>02</td>
-            <td>Leonardo</td>
-            <td>$750</td>
-            <td>Airfare, Taxi, Hotel stay</td>
-          </tr>
-
-          <tr>
-            <td>03</td>
-            <td>Donatello</td>
-            <td>$850</td>
-            <td>Fuel, Hotel</td>
-          </tr>
-
-          <tr>
-            <td>04</td>
-            <td>Michelangelo</td>
-            <td>$900</td>
-            <td>Fuel, Hotel, Pizza</td>
-          </tr>
-
-          <tr>
-            <td>05</td>
-            <td>April</td>
-            <td>$950</td>
-            <td>Bail money for Michelangelo and Casey Jones</td>
-          </tr>
-         </table>
+    <div class="container">
+    <div class="row">
+    <div class="col-md-10" offset="md-1">
+    <div class="row">
+      <div class="col-md-5 register-left">
+        <img src="icon.png">
+        <h3>Join Us</h3>
+        <p>Amphibious Assault Association</p>
+        <button type="button" class="btn btn-primary">About Us</button>   
+       </div>
+      <div class="col-md-7 register-right">
+          <h2>Reimbursement Request</h2>
+          <div class="reimbursement-form">
+              <div class="form-group">
+              <input type="text" class="form-control" placeholder="Employee Id">
+              </div>
+              <div class="form-group">
+              <input type="text" class="form-control" placeholder="Request Amount">
+              </div>
+              <div class="form-group">
+              <input type="text" class="form-control" placeholder="Request Description">
+              <br>
+              <button type="button" class="btn btn-primary">Submit</button>
+      </div>
     </div>
-
-    <div class="updateBtn">
-        <button onclick="editTableDisplay()">Update Requests</button>
     </div>
-
-    <div class="editTable">
-        <div class="left">First Name: </div><div><input type="text" name="fname" id="fname"></div><br>
-        <div class="left">Request Amount: </div><div><input type="text" name="request" id="request"></div><br>
-        <div class="left">Request Description: </div><div><input type="text" name="description" id="description"></div>
-        <button onclick="editRow()" class="editRowBtn">Update</button><br>
     </div>
-
-    
+    </div>
 </body>
 </html>
-
-
