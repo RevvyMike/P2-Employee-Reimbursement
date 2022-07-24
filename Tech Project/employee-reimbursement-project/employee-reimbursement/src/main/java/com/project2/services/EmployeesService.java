@@ -21,13 +21,24 @@ public class EmployeesService implements EmployeesServiceInterface{
     }
 
 
+    // @Override
+    // public boolean checkForLogin(Employees employeeToCheck) {
+    //   List<Employees> listOfEmployees = employeeDao.getAllEmployees();
+    //   if(listOfEmployees.size() == 1){
+    //     return true;
+    //   }  else {
+    //     return false;
+    //   }
+      
     @Override
-    public boolean checkForReason(Employees employeeToCheck) {
-      if(employeeToCheck.getUsername().equals("")){
-            return false;
-        } else {
-            return true;
-        }
+    public boolean checkForLogin(Employees checkCredentials){
+        List<Employees> listOfEmployees = employeeDao.getAllEmployees();
+        for(Employees creds : listOfEmployees){
+            if(creds.getUsername().equals(checkCredentials.getUsername()) && creds.getUserPassword().equals(checkCredentials.getUserPassword())){
+                return true;
+            }
+        } 
+        return false;
     }
 
     // @Override
