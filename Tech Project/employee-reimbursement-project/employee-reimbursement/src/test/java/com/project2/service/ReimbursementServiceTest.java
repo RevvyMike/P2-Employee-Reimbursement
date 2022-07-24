@@ -1,4 +1,4 @@
-package com.project2.repository.service;
+package com.project2.service;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;

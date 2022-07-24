@@ -7,7 +7,7 @@ import com.project2.entities.Employees;
 public interface EmployeesServiceInterface {
     
 // Business Rules Method
-    boolean checkForReason(Employees employeeToCheck);
+    boolean checkForLogin(Employees checkCredentials);
 
 
 
@@ -17,14 +17,14 @@ public interface EmployeesServiceInterface {
     
     //reads
     
-        List<Employees> serviceGetAllEmployees();
+    List<Employees> serviceGetAllEmployees();
      
     // updates
     
-        Employees serviceUpdateEmployees(Employees updatedEmployee);
+    Employees serviceUpdateEmployees(Employees updatedEmployee);
     
     // deletes
     
-        boolean serviceRemoveEmployees(Employees employeeToBeDeleted);
+    boolean serviceRemoveEmployees(Employees employeeToBeDeleted);
 
 }

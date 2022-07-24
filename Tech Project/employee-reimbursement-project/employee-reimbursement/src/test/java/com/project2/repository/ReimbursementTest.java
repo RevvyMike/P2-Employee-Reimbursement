@@ -31,14 +31,14 @@ public class ReimbursementTest {
 
     @Test
     public void updateReimbursementPositiveTest(){
-        Reimbursement updateReimbursement = new Reimbursement(66,"april", 444,"fuel surcharge");
+        Reimbursement updateReimbursement = new Reimbursement(60,"april", 444,"fuel surcharge");
         Reimbursement result = reimbursementDAO.updateReimbursement(updateReimbursement);
-        Assert.assertEquals(66, result.getId());
+        Assert.assertEquals(60, result.getId());
     }
 
     @Test
     public void removedReimbursementPositiveTest(){
-        Reimbursement removedReimbursement = new Reimbursement(62,"april",444,"fuel surcharge");
+        Reimbursement removedReimbursement = new Reimbursement(74, "david",	400,	"fuel");
         Boolean result = reimbursementDAO.removedReimbursement(removedReimbursement);
         Assert.assertTrue(result);
     }
