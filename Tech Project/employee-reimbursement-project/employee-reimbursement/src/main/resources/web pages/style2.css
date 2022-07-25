@@ -84,3 +84,14 @@ body
     0%{transform: tranlateY(0);}
     100%{transform: translateY(-20px);}
 }
+
+table,
+td {
+    border: 2px solid black;
+}
+
+thead,
+tfoot {
+    background-color: green;
+    color: #fff;
+}
