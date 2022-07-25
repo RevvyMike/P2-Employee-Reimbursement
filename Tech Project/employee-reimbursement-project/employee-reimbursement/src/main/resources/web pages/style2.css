@@ -63,7 +63,7 @@ body
 }
 
 .register-right .btn-primary
-{
+{   float:right;
     border-radius: 1.5rem;
     border: none;
     width:120px;
