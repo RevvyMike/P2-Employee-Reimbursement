@@ -21,15 +21,6 @@ public class EmployeesService implements EmployeesServiceInterface{
     }
 
 
-    // @Override
-    // public boolean checkForLogin(Employees employeeToCheck) {
-    //   List<Employees> listOfEmployees = employeeDao.getAllEmployees();
-    //   if(listOfEmployees.size() == 1){
-    //     return true;
-    //   }  else {
-    //     return false;
-    //   }
-      
     @Override
     public boolean checkForLogin(Employees checkCredentials){
         List<Employees> listOfEmployees = employeeDao.getAllEmployees();
@@ -41,23 +32,11 @@ public class EmployeesService implements EmployeesServiceInterface{
         return false;
     }
 
-    // @Override
-    // public boolean checkForLogin(Employees credentials){
-    //     List<Employees> allCredentials = this.employeeDao.getAllEmployees;
-    //     for(Employees creds : allCredentials){
-    //         if(creds.getUsername.equals(credentials.getUsername) && creds.getPassword.equals(credentials.getPassword)){
-    //             return true;
-    //         }
-    //     }
-    //     return false
-    // }
-
-
 
     @Override
     public Employees serviceCreateEmployees(Employees newEmployee) {
-        // TODO Auto-generated method stub
-        return null;
+        
+        return this.employeeDao.createEmployees(newEmployee);
     }
 
     @Override
@@ -68,8 +47,8 @@ public class EmployeesService implements EmployeesServiceInterface{
 
     @Override
     public Employees serviceUpdateEmployees(Employees updatedEmployee) {
-        // TODO Auto-generated method stub
-        return null;
+        
+        return this.employeeDao.updateEmployees(updatedEmployee);
     }
         // All that's needed for the remove method because there are no business rules for removing requests.
         // this method sends information to the already tested repository methods.
