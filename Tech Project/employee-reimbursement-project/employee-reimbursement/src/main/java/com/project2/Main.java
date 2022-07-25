@@ -1,10 +1,15 @@
 package com.project2;
 
 import com.project2.controllers.EmployeesController;
+import com.project2.controllers.ReimbursementController;
 import com.project2.repository.EmployeesDAOInterface;
 import com.project2.repository.EmployeesDao;
+import com.project2.repository.ReimbursementDAOInterface;
+import com.project2.repository.ReimbursementDao;
 import com.project2.services.EmployeesService;
 import com.project2.services.EmployeesServiceInterface;
+import com.project2.services.ReimbursementServiceInterface;
+import com.project2.services.ReimbursementServices;
 
 import io.javalin.Javalin;
 
@@ -32,6 +37,10 @@ public class Main {
         EmployeesServiceInterface employeesService = new EmployeesService(employeeDao);
         EmployeesController employeesController = new EmployeesController(employeesService);
 
+        ReimbursementDAOInterface reimbursementDao = new ReimbursementDao();
+        ReimbursementServiceInterface reimbursementService = new ReimbursementServices(reimbursementDao);
+        ReimbursementController reimbursementController = new ReimbursementController(reimbursementService);
+
         // hello world example
         app.get("/hello", employeesController.getHelloWorld);
 
@@ -47,6 +56,14 @@ public class Main {
         app.patch("/employees", employeesController.updateEmployees);
 
         app.post("/employees", employeesController.createEmployees);
+
+        app.get("/requests", reimbursementController.getAllRequests);
+
+        app.delete("/requests", reimbursementController.deleteRequests);
+
+        app.patch("/requests", reimbursementController.updateRequests);
+
+        app.post("/requests", reimbursementController.createRequests);
 
         app.start();
 
