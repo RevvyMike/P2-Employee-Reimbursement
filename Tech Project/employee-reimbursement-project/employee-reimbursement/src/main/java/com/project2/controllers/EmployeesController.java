@@ -60,7 +60,7 @@ public class EmployeesController {
         this.employeesService.serviceRemoveEmployees(employeeToDelete);
         // because I am not returning any special entity with this method I will use a map to create my key/value pair
         Map<String, String> message = new HashMap<>();
-        message.put("message", "employee was released");
+        message.put("message", "employee request was denied");
         // once the map is made we conver it into a json
         String messageJson = this.gson.toJson(message);
         // then we attach it to the response body and set the status code.
