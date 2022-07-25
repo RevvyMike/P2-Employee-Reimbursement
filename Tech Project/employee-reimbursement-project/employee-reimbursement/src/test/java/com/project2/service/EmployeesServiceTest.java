@@ -1,4 +1,4 @@
-package com.project2.repository.service;
+package com.project2.service;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -23,9 +23,9 @@ public class EmployeesServiceTest {
 
    
    @Test
-   public void checkForReasonNegativeTest(){
-        Employees badRequest = new Employees( "", "", "");
-        boolean result = employeeService.checkForReason(badRequest);
+   public void checkForLoginNegativeTest(){
+        Employees badLogin = new Employees( "mikeyangelo", "thatguy", "employee");
+        boolean result = employeeService.checkForLogin(badLogin);
         Assert.assertFalse(result);
    }
 

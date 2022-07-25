@@ -45,7 +45,7 @@ public class EmployeesTest {
 
     @Test
     public void updatedEmployeesPositiveTest(){
-        Employees updatedEmployee = new Employees(-6, "donnyboy", "purple", "employee");
+        Employees updatedEmployee = new Employees(-8, "donnyboy", "purple", "employee");
         Employees result = employeeDao.updateEmployees(updatedEmployee);
         Assert.assertEquals("donnyboy", result.getUsername());
 
@@ -53,7 +53,7 @@ public class EmployeesTest {
 
     @Test
     public void removeEmployeesPositiveTest(){
-        Employees requestToBeDeleted = new Employees(-7, "mike mike", "mike mike", "defeated");
+        Employees requestToBeDeleted = new Employees(-9, "donnyboy", "mike mike", "defeated");
         boolean result = employeeDao.removeEmployees(requestToBeDeleted);
         Assert.assertTrue(result);
     }
