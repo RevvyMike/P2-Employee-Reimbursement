@@ -30,7 +30,7 @@ tr:nth-child(odd){
     text-align: center;
 }
 .updateBtn button{
-   background-color: red;
+   background-color: blue;
    padding: 5px 10px;
    border: 1px solid black;
    color: #fff;
@@ -43,6 +43,20 @@ tr:nth-child(odd){
     transition: .5s;
 }
 
+.logoutBtn{
+    text-align: center;
+}
+
+.logoutBtn button{
+    background-color: red;
+    color:#fff;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+   
+    
 .editTable
 {
    display:;
