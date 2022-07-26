@@ -10,6 +10,7 @@ import com.project2.services.EmployeesService;
 import com.project2.services.EmployeesServiceInterface;
 import com.project2.services.ReimbursementServiceInterface;
 import com.project2.services.ReimbursementServices;
+import com.project2.utils.HibernateUtil;
 
 import io.javalin.Javalin;
 
@@ -18,7 +19,7 @@ public class Main {
 
     // reminder: this main method is the entry point for your application
     public static void main(String[] args) {
-      
+      HibernateUtil.getSessionFactory();
         // inside of the create method we call a lambda that Javalin can use to configure our web server
         Javalin app = Javalin.create(config ->{
             config.enableCorsForAllOrigins();   // This will make sure that we can access and get infromation to and from all of our webpages
