@@ -1,0 +1,44 @@
+package com.project2.poms;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Manager {
+   
+    @FindBy(className ="updateBtn")
+    public WebElement approve;
+    @FindBy(className = "editRowBtn")
+    public WebElement deny;
+    @FindBy(id = "description")
+    public WebElement description;
+    @FindBy(className ="logoutBtn")
+    public WebElement logout;
+
+    public Manager(WebDriver driver){
+        PageFactory.initElements(driver, this);
+    }
+        public void clickButton(){
+
+            this.approve.click();
+        }
+
+        public void clickButton1(){
+    
+            this.deny.click();
+        
+        }
+
+        public void requestInput(String description){
+    
+            this.description.sendKeys(description);
+        
+        }
+
+        public void clickButton2(){
+
+            this.logout.click();
+        }
+
+}
