@@ -1,6 +1,4 @@
-employee Acceptance Criteria
-
-Feature:  The employee should be able to login into the database via webpage
+Feature:  The employee scenarios
 
     Scenario: As the employee, I want to view tables in the database
 
@@ -11,7 +9,7 @@ Feature:  The employee should be able to login into the database via webpage
         Then   The employee should be able to view table
 
 
-Feature: The employee should be able to check status on reimbursement requests
+# Feature: The employee should be able to check status on reimbursement requests
 
     Scenario: As an employee I want to check the status on my reimbursement request
 
@@ -19,7 +17,7 @@ Feature: The employee should be able to check status on reimbursement requests
         When   The employee checks on current status 
         Then   The employee should see more details
 
-Feature: The employee should be able to create a new reimbursement request 
+# Feature: The employee should be able to create a new reimbursement request 
 
     Scenario: As an employee I want create a reimbursement request via webpage
 
@@ -30,7 +28,7 @@ Feature: The employee should be able to create a new reimbursement request
         Then   The employee sees a success notification
 
 
-Feature: The employee should be able to log out of the database for security reasons
+# Feature: The employee should be able to log out of the database for security reasons
 
     Scenario: As an employee I need to close the session by logging out
 
