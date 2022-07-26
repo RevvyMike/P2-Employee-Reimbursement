@@ -56,6 +56,10 @@ public class EmployeesController {
         String json = ctx.body();
         // conmverts json string into the java class we are working with.
         Employees employeeToDelete = this.gson.fromJson(json, Employees.class);
+        // to make sure that I am updating the employee that I indicated in the http request I set the path id to the id of the employee
+        String identifier = ctx.pathParam("id");
+        int employeeId = Integer.parseInt(identifier);
+        employeeToDelete.setId(employeeId);
          // passes the java object we created into the appropriate service method for validation
         this.employeesService.serviceRemoveEmployees(employeeToDelete);
         // because I am not returning any special entity with this method I will use a map to create my key/value pair
@@ -65,7 +69,7 @@ public class EmployeesController {
         String messageJson = this.gson.toJson(message);
         // then we attach it to the response body and set the status code.
         ctx.result(messageJson);
-        ctx.status(203); //double check
+        ctx.status(200); //double check
      };
 
     public Handler updateEmployees = ctx -> { // THIS MAY NOT need the Try catch block since we didn't use one for update, We only used this for checkin login in Employees service layer
@@ -74,6 +78,8 @@ public class EmployeesController {
             String json = ctx.body();
             // convert hson to our java object
             Employees updatedEmployees = this.gson.fromJson(json, Employees.class);
+            // This does the same process of getting the id from the path and setting it as the id of the updated employee
+            updatedEmployees.setId(Integer.parseInt(ctx.pathParam("id")));
             // pass the data into the service layer and get method result back
             Employees result = this.employeesService.serviceUpdateEmployees(updatedEmployees);
             // convert the result into a json

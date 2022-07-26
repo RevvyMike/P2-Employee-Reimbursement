@@ -51,17 +51,17 @@ public class Main {
         // get all employees
         app.get("/employees", employeesController.getAllEmployees);
 
-        app.delete("/employees", employeesController.deleteEmployees);
+        app.delete("/employees/{id}", employeesController.deleteEmployees);
 
-        app.patch("/employees", employeesController.updateEmployees);
+        app.patch("/employees/{id}", employeesController.updateEmployees);
 
         app.post("/employees", employeesController.createEmployees);
 
         app.get("/requests", reimbursementController.getAllRequests);
 
-        app.delete("/requests", reimbursementController.deleteRequests);
+        app.delete("/requests/{id}", reimbursementController.deleteRequests);
 
-        app.patch("/requests", reimbursementController.updateRequests);
+        app.patch("/requests/{id}", reimbursementController.updateRequests);
 
         app.post("/requests", reimbursementController.createRequests);
 
