@@ -33,12 +33,13 @@ public class ReimbursementController {
     public Handler deleteRequests = ctx -> {
             String json = ctx.body();
             Reimbursement requestToDelete = this.gson.fromJson(json, Reimbursement.class);
+            requestToDelete.setId(Integer.parseInt(ctx.pathParam("id")));
             this.reimbursementService.serviceRemoveRequests(requestToDelete);
             Map<String, String> message = new HashMap<>();
             message.put("message", "employee was released");
             String messageJson = this.gson.toJson(message);
             ctx.result(messageJson);
-            ctx.status(203); //double check
+            ctx.status(200); //double check
     };
 
     public Handler updateRequests = ctx -> {
@@ -47,6 +48,7 @@ public class ReimbursementController {
             String json = ctx.body();
             // convert hson to our java object
             Reimbursement updatedRequests = this.gson.fromJson(json, Reimbursement.class);
+            updatedRequests.setId(Integer.parseInt(ctx.pathParam("id")));
               // pass the data into the service layer and get method result back
             Reimbursement result = this.reimbursementService.serviceUpdateRequests(updatedRequests);
             // convert the result into a json
