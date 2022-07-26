@@ -87,8 +87,7 @@ body
 
 table,
 td {
-    border: 2.5px solid black;
-    float: center;
+    border: 2px solid black;
 }
 
 thead,
