@@ -11,19 +11,20 @@ Feature:  The employee scenarios
 
 # Feature: The employee should be able to check status on reimbursement requests
 
-    Scenario: As an employee I want to check the status on my reimbursement request
+#Scenario: As an employee I want to check the status on my reimbursement request
 
-        Given  The employee is logged into the webpage
-        When   The employee checks on current status 
-        Then   The employee should see more details
+        #Given  The employee is logged into the webpage
+        #When   The employee checks on current status 
+        #Then   The employee should see more details
 
 # Feature: The employee should be able to create a new reimbursement request 
 
     Scenario: As an employee I want create a reimbursement request via webpage
 
         Given  The employee is logged into the database to make a reimbursement request
+        When   The employee enters the employees id 
         When   The employee enters a dollar amount less than or equal to $1000
-        When   The employee selects from pre-approved list
+        When   The employee enters a request description
         When   The employee clicks on the submit button
         Then   The employee sees a success notification
 

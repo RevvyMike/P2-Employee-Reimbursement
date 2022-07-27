@@ -24,13 +24,13 @@ public class LoginSteps {
     @When("The employee enters their username")
     public void the_employee_enters_their_username() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.login.enterUsername("");
+        TestRunner.login.enterUsername("bluenardo");
     }
 
     @When("The employee enters their password")
     public void the_employee_enters_their_password() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.login.enterPassword("");
+        TestRunner.login.enterPassword("Leaonardo");
     }
 
     @Then("The employee should be able to view table")
@@ -50,13 +50,13 @@ public class LoginSteps {
     @When("the manager enters his correct username")
     public void the_manager_enters_his_correct_username() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.login.enterUsername("");
+        TestRunner.login.enterUsername("splinter");
     }
 
     @When("the manager enters his correct password")
     public void the_manager_enters_his_correct_password() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.login.enterPassword("");
+        TestRunner.login.enterPassword("turtlePower");
     }
   
     @When("The employee clicks button to sign in")

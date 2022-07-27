@@ -1,5 +1,7 @@
 package com.project2.runner;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -7,9 +9,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.project2.entities.Employees;
+import com.project2.entities.Reimbursement;
 import com.project2.poms.Employee;
 import com.project2.poms.Login;
 import com.project2.poms.Manager;
+import com.project2.repository.EmployeesDAOInterface;
+import com.project2.repository.EmployeesDao;
 import com.project2.repository.ReimbursementDAOInterface;
 import com.project2.repository.ReimbursementDao;
 
@@ -32,13 +38,20 @@ public class TestRunner {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/features/chromedriver.exe");
         driver = new ChromeDriver();
         
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
         ReimbursementDAOInterface reimbursementDao = new ReimbursementDao();
+        Reimbursement reimbursementForE2ETest = reimbursementDao.createReimbursement(new Reimbursement("",700, "comic books E2E"));
+        EmployeesDAOInterface employeesDao = new EmployeesDao();
+        Employees employeeForE2ETest = employeesDao.createEmployees(new Employees(0,"","",""));
+        
 
         driver= new ChromeDriver(); 
         login= new Login(driver);
-        wait = new WebDriverWait(driver,7);
-        employee = new Employee(driver);
+        wait = new WebDriverWait(driver,15);
+        employee = new Employee(driver, employeeForE2ETest.getId());
         manager = new Manager(driver);
+         
 }
 @AfterClass public static void Teardown(){
     driver.quit();
