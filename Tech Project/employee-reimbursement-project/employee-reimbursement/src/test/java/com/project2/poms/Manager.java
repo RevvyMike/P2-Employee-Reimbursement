@@ -7,9 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Manager {
    
-    @FindBy(className ="updateBtn")
+    @FindBy(className ="favoriteStyled")
     public WebElement approve;
-    @FindBy(className = "editRowBtn")
+    @FindBy(className = "favoriteStyled1")
     public WebElement deny;
     @FindBy(id = "description")
     public WebElement description;
