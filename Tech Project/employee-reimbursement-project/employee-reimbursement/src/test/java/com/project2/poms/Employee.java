@@ -30,9 +30,9 @@ public class Employee {
     
     }
 
-    public void employeeRequest(String formGroup1){
+    public void employeeRequest(int formGroup1){
     
-        this.RequestAmount.sendKeys(formGroup1);
+        this.RequestAmount.sendKeys(String.valueOf(formGroup1));
     
     }
 
