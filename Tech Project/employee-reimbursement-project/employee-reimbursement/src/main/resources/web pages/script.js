@@ -1,4 +1,7 @@
-async function editTable
+
+const 
+
+async function editTableDisplay
 
 let config = {
     method:"GET", // method is a reference to the kind of request you are making (the verb): GET is the default
@@ -18,22 +21,22 @@ let config = {
         console.log(requests.assignedTo)
     }
     console.log(localStorage.getItem("requests"));
-        let defectBody = document.getElementById("defectBody");
+        let requests = document.getElementById("requests");
         
         htmlString = "";
 
-        for(defect of responseBody) {
-            if(defect.assignedTo == localStorage.getItem("username")) {
+        for(requests of responseBody) {
+            if(requests.assignedTo == localStorage.getItem("username")) {
                 htmlString += "<tr>" 
 
-                htmlString += "<td>"  + defect.defectId + "</td>"       
-                htmlString += "<td>"  + defect.status + "</td>"      
+                htmlString += "<td>"  + requests.employeeId + "</td>"       
+                htmlString += "<td>"  + requests.status + "</td>"      
 
                 htmlString += "</tr>"    
             }
         }
 
 
-        defectBody.innerHTML = htmlString;
+        requests.innerHTML = htmlString;
         
     }      

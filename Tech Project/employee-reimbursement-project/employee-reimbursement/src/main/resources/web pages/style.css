@@ -26,34 +26,59 @@ table{
 tr:nth-child(odd){
     background-color: rgb(0,100,0);
 }
-.updateBtn{
+.styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
     text-align: center;
-}
-.updateBtn button{
-   background-color: blue;
-   padding: 5px 10px;
-   border: 1px solid black;
-   color: #fff;
-   margin: 10px 0;
-   border-radius: 5px;
-}
-.updateBtn button:hover{
-    background-color:lightgrey;
-    color: black;
-    transition: .5s;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(25, 71, 3, 0.938);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 
-.logoutBtn{
-    text-align: center;
+.styled:hover {
+    background-color: rgba(255, 0, 0, 1);
 }
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
 
 .logoutBtn button{
-    background-color: red;
-    color:#fff;
-    border: 1px solid black;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-top: 5px;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(3, 19, 71, 0.938);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.logoutBtn:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.logoutBtn:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
    
     
@@ -68,22 +93,4 @@ tr:nth-child(odd){
 {
     float: left;
 }
-.right
-{
-    float: right;
-}
-.editRowBtn
-{
-    background-color: rgb(0,100,0);
-    color:#fff;
-    border: 1px solid black;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-.editRowBtn:hover
-{
-    background-color: lightgrey;
-    color: black;
-    transition: .5s;
-}
+
