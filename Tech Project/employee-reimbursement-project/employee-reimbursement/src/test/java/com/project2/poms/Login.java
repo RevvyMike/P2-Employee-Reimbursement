@@ -13,13 +13,15 @@ public class Login {
     @FindBy(className = "textbox1")
     public WebElement passwordBox;
 
-    @FindBy(className = "btn" ) 
+    @FindBy(tagName = "btn" ) 
     public WebElement signInButton;
 
 
     public Login(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
+
+    
         public void enterUsername(String Username){
 
             this.usernameBox.sendKeys(Username);
@@ -37,6 +39,6 @@ public class Login {
         
         }
 
-
+        
 
 }

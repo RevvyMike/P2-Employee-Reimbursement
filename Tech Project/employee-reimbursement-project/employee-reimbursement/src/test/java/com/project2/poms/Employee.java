@@ -47,6 +47,11 @@ public class Employee {
         this.Submit.click();
     }
 
+    public String getAlertText(){
+        String text = this.driver.switchTo().alert().getText();
+        this.driver.switchTo().alert().accept();
+        return text;
+    }
     public void clickButton1(){
 
         this.LogOut.click();
