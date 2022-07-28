@@ -7,15 +7,15 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Employee {
     
-    @FindBy(className ="formgroup")
+    @FindBy(id ="eName")
     public WebElement EmployeeId;
-    @FindBy(className = "formgroup1")
+    @FindBy(id = "amount")
     public WebElement RequestAmount;
-    @FindBy(className ="formgroup2")
+    @FindBy(id ="descript")
     public WebElement RequestDescription;
-        @FindBy(className ="btnprimary")
+        @FindBy(id ="sub")
     public WebElement Submit;
-    @FindBy(className ="btnprimary1")
+    @FindBy(id ="log")
     public WebElement LogOut;
 
 
@@ -24,21 +24,21 @@ public class Employee {
 
     } 
     
-    public void employeeIdInput(String formGroup){
+    public void employeeIdInput(String eName){
     
-        this.EmployeeId.sendKeys(formGroup);
-    
-    }
-
-    public void employeeRequest(int formGroup1){
-    
-        this.RequestAmount.sendKeys(String.valueOf(formGroup1));
+        this.EmployeeId.sendKeys(eName);
     
     }
 
-    public void employeeDescription(String formGroup2){
+    public void employeeRequest(int amount){
     
-        this.RequestDescription.sendKeys(formGroup2);
+        this.RequestAmount.sendKeys(String.valueOf(amount));
+    
+    }
+
+    public void employeeDescription(String descript){
+    
+        this.RequestDescription.sendKeys(descript);
     
     }
 
