@@ -23,13 +23,13 @@
           <h2>Reimbursement Request</h2>
           <div class="reimbursement-form">
               <div class="formgroup">
-              <input type="text" class="form-control" placeholder="Employee Id">
+              <input id="eName" type="text" class="form-control" placeholder="Employee Id">
               </div>
               <div class="formgroup1">
-              <input type="text" class="form-control" placeholder="Request Amount">
+              <input id="amount" type="text" class="form-control" placeholder="Request Amount">
               </div>
               <div class="formgroup2">
-              <input type="text" class="form-control" placeholder="Request Description">
+              <input id="descript" type="text" class="form-control" placeholder="Request Description">
               <br>
               <button type="button" class="btnprimary">Submit</button>
               <button type="button" class="btnprimary1">Log Out</button>
@@ -52,4 +52,37 @@
           </tr>
       </tbody>
   </table>
+  <Script>
+    async function create(){
+        // to let my api validate login information I need to attach the username and password to the http request
+        let createRequest = {
+        
+        
+        id: document.getElementById("eName"),
+        reimbursement_amount: document.getElementById("amount"),
+        request_reason: document.getElementById("descript")
+    }
+
+  
+        
+        
+  let assignJSON = JSON.stringify(createRequest);
+
+        let config ={
+            method: "POST",
+            headers:{'Content-Type':"application/json"},
+            body: assignJSON
+    }
+        
+    let httpResponse = await fetch("http://localhost:8080/requests",config); 
+
+    if(httpResponse.status === 201){ // 200 basically means request made successfully
+        alert(`Request Submitted`);
+                        }else{
+                let responseBody = await httpResponse.json();
+                alert(responseBody.detail);
+            }
+
+    }
+</Script>
 </html>
