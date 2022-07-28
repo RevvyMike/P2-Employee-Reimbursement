@@ -50,13 +50,13 @@ public class LoginSteps {
     @When("the manager enters his correct username")
     public void the_manager_enters_his_correct_username() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.login.enterUsername("splinter");
+        TestRunner.login.enterUsername("mike");
     }
 
     @When("the manager enters his correct password")
     public void the_manager_enters_his_correct_password() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.login.enterPassword("turtlePower");
+        TestRunner.login.enterPassword("renfroe");
     }
   
     @When("The employee clicks button to sign in")
