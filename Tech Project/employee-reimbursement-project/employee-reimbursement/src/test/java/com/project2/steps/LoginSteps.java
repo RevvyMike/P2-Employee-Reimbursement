@@ -18,7 +18,7 @@ public class LoginSteps {
     @Given("The employee is on the login page")
     public void the_employee_is_on_the_login_page() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.driver.get("file:///C:/Users/17132/Desktop/P2-Employee-Reimbursement/Tech%20Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web%20pages/login.html");
+        TestRunner.driver.get("file:///C:/Users/17132/Desktop/P2-Employee-Reimbursement/Tech%20Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web%20pages/P2Login.html");
     }
 
     @When("The employee enters their username")
