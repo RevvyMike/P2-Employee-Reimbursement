@@ -7,7 +7,7 @@ import com.project2.entities.Employees;
 public interface EmployeesServiceInterface {
     
 // Business Rules Method
-    boolean checkForLogin(Employees checkCredentials);
+    Employees checkForLogin(Employees checkCredentials);
 
 
 

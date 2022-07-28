@@ -66,6 +66,8 @@ public class Main {
 
         app.post("/requests", reimbursementController.createRequests);
 
+        app.patch("/login", employeesController.employeeLogin);
+
         app.start();
 
 

@@ -38,8 +38,8 @@ public class ManagerSteps {
     public void the_manager_should_be_able_to_save_all_changes() {
         // Write code here that turns the phrase above into concrete actions
         TestRunner.wait.until(ExpectedConditions.alertIsPresent());
-                    String text = TestRunner.driver.switchTo().alert().getText();
-                    Assert.assertEquals("Request Approved", text);
+        String text = TestRunner.driver.switchTo().alert().getText();
+        Assert.assertEquals("Request Approved", text);
     }
         /*
             The manager should be able to deny reimbursement requests 

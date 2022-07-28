@@ -1,5 +1,6 @@
 package com.project2.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,6 +15,7 @@ public class Employees {
         @GeneratedValue
         private int id;             // these fields represent the data in our database
         private String username;
+        @Column(name = "user_password")
         private String userPassword;
         private String roles;
 

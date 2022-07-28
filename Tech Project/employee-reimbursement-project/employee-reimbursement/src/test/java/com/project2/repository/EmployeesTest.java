@@ -25,13 +25,13 @@ public class EmployeesTest {
          set up my test environment for future tests.
          */
 
-         Employees setupUpdateEmployee = new Employees(-1, "bluenardo", "Leonardo", "employee");
+         Employees setupUpdateEmployee = new Employees(-1, "Leonardo", "Leo", "employee");
          employeeDao.updateEmployees(setupUpdateEmployee);
     }
 
     @Test
     public void createEmployeesPositiveTest(){
-        Employees testEmployee = new Employees("vicente", "vangoh", "employee in training");
+        Employees testEmployee = new Employees(0, "mike", "renfroe", "employee");
         Employees result = employeeDao.createEmployees(testEmployee);
         Assert.assertNotNull(result.getId());
     }
@@ -45,15 +45,15 @@ public class EmployeesTest {
 
     @Test
     public void updatedEmployeesPositiveTest(){
-        Employees updatedEmployee = new Employees(-8, "donnyboy", "purple", "employee");
+        Employees updatedEmployee = new Employees(-1, "mike mike", "mike ", "employee");
         Employees result = employeeDao.updateEmployees(updatedEmployee);
-        Assert.assertEquals("donnyboy", result.getUsername());
+        Assert.assertEquals("mike mike", result.getUsername());
 
     }
 
     @Test
     public void removeEmployeesPositiveTest(){
-        Employees requestToBeDeleted = new Employees(-9, "donnyboy", "mike mike", "defeated");
+        Employees requestToBeDeleted = new Employees(-9, "mike n mike", "mike mike", "employee");
         boolean result = employeeDao.removeEmployees(requestToBeDeleted);
         Assert.assertTrue(result);
     }

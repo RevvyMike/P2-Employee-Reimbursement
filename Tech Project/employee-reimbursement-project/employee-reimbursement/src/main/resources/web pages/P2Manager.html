@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AAA Manager Page</title>
+</head>
+<body>
+    <h1>Manager Reimbursement Table</h1>
+    <!-- Table to hold reimbursement info (maybe seperate reason/approve & deny section) -->
+    <table>
+        <thead>
+            <tr>Id</tr>
+            <tr>User</tr>
+            <tr>Amount</tr>
+            <tr>Reason for Request</tr>
+            <tr>Manage Decision</tr>
+            <tr>Approve/Deny</tr>    
+        </thead>
+        <tbody id="Managertbody">
+            <!-- Table will be dynamic -->
+        </tbody>                                            
+    </table>
+    <!-- <select name="ids" id="idselect" ></select>
+    <input id="ManagerReason" type="text" placeholder="Place your reason here">
+    <button id="ApproveButton">Approve</button><button id="DenyButton">Deny</button> -->
+    <div class="logoutBtn">
+        <button onclick="logOut()" class="logoutBtn" type="button">LogOut</button>
+</body>
+<script>
+    const tbody = document.getElementById("Managertbody");
+    const idSelect = document.getElementById("idSelect");
+    const managerReason = document.getElementById("ManagerReason");
+    const approveButton = document.getElementById("ApproveButton");
+    const denyButton = document.getElementById("DenyButton");
+    const baseURL = "http://localhost:8080/";
+    
+
+//     function loadref(time)
+// {
+//     setTimeout("location.reload(true);",time);
+// }
+
+
+    /*
+        TODO
+            Get All Requests
+            Update Requests
+    */
+
+    async function getAllRequests(){
+        /*
+            Process
+                1. craft http request
+                2. make request
+                3. handle the response
+        */
+
+        // This is a get so we don't need the config and pass it into the fetch request
+        let httpResponse = await fetch(`${baseURL}requests`);
+        if(httpResponse.status === 200){
+           // prevents duplicate data from filling table/select element
+            tbody.innerHTML = "";
+            // idSelect.innerHTML = "";             UPDATE ERROR here as well/Table no longer populates if I do this
+            /*
+            convert httpResponse body into an array of objects
+                for each request in array of objects:
+                    create a new row element
+                    set innerHTML of the new row element with the information from the request
+                    append the row element to the table body
+            */ 
+           const requests = await httpResponse.json();
+                for(let request of requests){
+                    let newRow = document.createElement('tr');
+                    newRow.innerHTML = ` 
+                    <td>${request.id}</td>
+                    <td>${request.employee_name}</td>
+                    <td>${request.reimbursement_amount}</td>
+                    <td>${request.request_reason}</td>
+                    <td><input id="ManagerReason${request.id}" type="text" placeholder="Place your reason here"></td>
+                    <td><button onclick="updateRequest(${request.id})">Approve</button></td>
+                    <td><button onclick="removeRequests(${request.id}, '${request.employee_name}', ${request.reimbursement_amount}, '${request.request_reason}')">Deny</button></td>`;
+                tbody.appendChild(newRow);
+           }
+        } else {
+            alert("Wrong, Try Again");
+        }
+
+    }
+
+    async function removeRequests(requestId, requestEmployee_Name, requestReimbursement_Amount, requestRequest_Reason){
+            /*
+                Craft json
+                create config
+                pass config along with http request
+                handle response
+            */ 
+
+            let requestObject = {
+                employee_name: requestEmployee_Name,
+                reimbursement_amount: requestReimbursement_Amount,
+                request_reason: requestRequest_Reason
+            }
+
+            let requestJson = JSON.stringify(requestObject);
+
+            let config = {
+                method: 'DELETE',
+                headers:{"Content-Type":"application/json"},
+                body: requestJson
+            }
+
+            let httpResponse = await fetch(`${baseURL}requests/${requestId}`, config);
+
+
+            if(httpResponse.status === 200){
+                alert("Request Denied!!!");
+                getAllRequests();
+            } else {
+                alert("didn't work!");
+            }
+
+        }
+
+
+        async function updateRequest(requestId, requestEmployee_Name, requestReimbursement_Amount, requestRequest_Reason){
+            // let manUserInput = document.getElementById(`manuserinput${requestEmployee_Name}`)
+            // let textAmount = document.getElementById(`textamount${requestReimbursement_Amount}`)
+            let reason = document.getElementById(`ManagerReason${requestId}`)
+
+            
+
+            let requestObject = {
+                employee_name: requestEmployee_Name,
+                reimbursement_amount: requestReimbursement_Amount,
+                request_reason: reason.value
+
+            }
+
+            let requestJson = JSON.stringify(requestObject);
+
+            let config = {
+                method: "PATCH",
+                headers: {"Content-Type":"application/json"},
+                body: requestJson
+            };
+
+            let httpResponse = await fetch(`${baseURL}requests/${requestId}`, config);
+
+            if(httpResponse.status === 200){
+                alert("Request has been approved!!")
+            } else if (httpResponse.status === 400){
+                let body = await httpResponse.json();
+                alert(body.message);
+            }
+            
+        }
+
+        function logOut(){
+            window.location.href = "login.html";
+            alert("You are logged out");
+        }
+
+    getAllRequests();
+</script>
+</html>

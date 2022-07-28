@@ -7,15 +7,15 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Manager {
    
-    @FindBy(className ="updateBtn")
+    @FindBy(id = "ApproveButton")
     public WebElement approve;
-    @FindBy(className = "editRowBtn")
+    @FindBy(id =  "DenyButton")
     public WebElement deny;
-    @FindBy(id = "description")
+    @FindBy(id = "ManagerReason")
     public WebElement description;
     @FindBy(className ="logoutBtn")
     public WebElement logout;
-
+    private WebDriver driver;
     public Manager(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
@@ -35,6 +35,11 @@ public class Manager {
             this.description.sendKeys(description);
         
         }
+        public String getAlertText(){
+            String text = this.driver.switchTo().alert().getText();
+            this.driver.switchTo().alert().accept();
+            return text;
+        }    
 
         public void clickButton2(){
 

@@ -7,15 +7,15 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Login {
     
-    @FindBy(className = "textbox")
+    @FindBy(id = "username")
     public WebElement usernameBox;
 
-    @FindBy(className = "textbox1")
+    @FindBy(id = "password")
     public WebElement passwordBox;
 
-    @FindBy(tagName = "btn" ) 
+    @FindBy(className = "btn" ) 
     public WebElement signInButton;
-
+    private WebDriver driver;
 
     public Login(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -32,6 +32,11 @@ public class Login {
             this.passwordBox.sendKeys(password);
         
         }
+        public String getAlertText(){
+            String text = this.driver.switchTo().alert().getText();
+            this.driver.switchTo().alert().accept();
+            return text;
+        }    
 
         public void clickButton(){
     

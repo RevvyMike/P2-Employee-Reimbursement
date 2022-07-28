@@ -12,17 +12,61 @@
        <h1>Login</h1>
     <div class="textbox">
         <i class="fa fa-user" aria-hidden="true"></i>
-        <input type="text" placeholder="Username" name="" value="">
+        <input id = "username" type="text" placeholder="Username" name="" value="">
     </div>
-    
-    <div class="textbox1">
+    <div class="textbox">
         <i class="fa fa-lock" aria-hidden="true"></i>
-        <input type="password" placeholder="Password" name="" value="">
+        <input id= "password" type="password" placeholder="Password" name="" value="">
     </div>
 
-    <input class="btn" type="button" name="" value="Sign In">
+    <input class="btn" type="button" onclick="login()" name="" value="Sign In"> 
+   
 
-    </div>
     
+    
+
+    </div>
 </body>
+<script>
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const signInButton = document.getElementsByClassName("btn");
+
+
+    async function login(){
+
+        let loginInfo = {
+            username: document.getElementById("username").value,
+            userPassword: document.getElementById("password").value   
+            }
+
+        let loginJson = JSON.stringify(loginInfo);
+
+        let config = {
+            method: "PATCH",
+            headers: {'Content-Type' : "application/json"},
+            body: loginJson
+        }
+
+        let httpResponse = await fetch("http://localhost:8080/login", config);
+
+        if(httpResponse.status === 200){
+            let responseBody = await httpResponse.json();
+
+            if(responseBody.roles === "employee"){
+                localStorage.setItem("username", username.value);
+                window.location.href = "employee.html"
+            } else {
+                window.location.href = "P2Manager.html";
+            }
+        } else {
+            let responseBody = await httpResponse.json();
+            alert(responseBody.detail);
+        }
+
+    }
+
+    // signInButton.addEventListener('click', login)
+
+</script>
 </html>
