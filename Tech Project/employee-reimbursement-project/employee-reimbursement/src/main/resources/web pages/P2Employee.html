@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Employee Page</title>
+</head>
+<body>
+    <h1>Reimbursement Table</h1>
+    <table>
+        <thead>
+            <tr>Previous Request Amount</tr> <tr>Previous Request Description</tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <input type="text" id="amount" placeholder="Enter Amount">
+    <input type="text" id="descript" placeholder="Enter Reason">
+</body>
+<script>
+
+    const tbody = document.getElementById("tbody");
+    const amountInput = document.getElementById("amount");
+    const descriptionInput = document.getElementById("descript");
+    const baseURL = "http://localhost:8080/";
+    const sumbitButton = document.getElementById("sub");
+    const logOutButton = document.getElementById("log")
+
+
+
+    async function getPreviousRequests(){
+        /*
+            Process
+                1. craft http request
+                2. make request
+                3. handle the response
+        */
+
+
+        let httpResponse = await fetch(`${baseURL}requests`);
+        if(httpResponse.status === 200){
+
+
+            const requests = await httpResponse.json();
+            for(let request of requests){
+                let newRow = document.createElement("tr");
+                newRow.innerHTML = 
+                `
+                <td>${request.id}</td>
+                <td>${request.reimbursement_amount}</td>
+                <td>${request.request_reason}</td> `
+
+                tbody.appendChild(newRow);
+            }
+        } else {
+            alert("Not Loading");
+        }
+        
+
+    }
+
+
+
+
+    async function create(){
+        // to let my api validate login information I need to attach the username and password to the http request
+        let createRequest = {
+        
+        
+        id: document.getElementById("eName"),
+        reimbursement_amount: document.getElementById("amount"),
+        request_reason: document.getElementById("descript")
+    }
+
+  
+        
+        
+  let assignJSON = JSON.stringify(createRequest);
+
+        let config ={
+            method: "POST",
+            headers:{'Content-Type':"application/json"},
+            body: assignJSON
+    }
+        
+    let httpResponse = await fetch("http://localhost:8080/requests",config); 
+
+    if(httpResponse.status === 201){ // 200 basically means request made successfully
+        alert(`Request Submitted`);
+                        }else{
+                let responseBody = await httpResponse.json();
+                alert(responseBody.detail);
+            }
+
+    }
+
+    getPreviousRequests();
+</Script>
+</html>
+</script>
+</html>
