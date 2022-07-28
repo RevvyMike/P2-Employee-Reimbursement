@@ -8,7 +8,12 @@
     <!-- Table to hold reimbursement info (maybe seperate reason/approve & deny section) -->
     <table>
         <thead>
-            <tr>Id</tr><tr>User</tr><tr>Amount</tr><tr>Reason for Request</tr><tr>ID select</tr><tr>Manage Decision</tr><tr>Approve/Deny</tr>    
+            <tr>Id</tr>
+            <tr>User</tr>
+            <tr>Amount</tr>
+            <tr>Reason for Request</tr>
+            <tr>Manage Decision</tr>
+            <tr>Approve/Deny</tr>    
         </thead>
         <tbody id="Managertbody">
             <!-- Table will be dynamic -->
@@ -61,7 +66,6 @@
                     <td>${request.employee_name}</td>
                     <td>${request.reimbursement_amount}</td>
                     <td>${request.request_reason}</td>
-                    <td><select name="ids" id="idselect" ></select></td>
                     <td><input id="ManagerReason" type="text" placeholder="Place your reason here"></td>
                     <td><button onclick="updateRequest()">Approve</button></td>
                     <td><button onclick="denyRequest(${request.id}, '${request.employee_name}', ${request.reimbursement_amount}, '${request.request_reason}')">Deny</button></td>`;
@@ -114,7 +118,7 @@
         }
 
 
-        async function updateRequest(){
+        async function updateRequest(requestId){
             let requestObject = {
                 request_reason: managerReason.value,
             }
@@ -127,7 +131,7 @@
                 body: requestJson
             };
 
-            let httpResponse = await fetch(`${baseURL}requests/${idSelect.value}`, config);
+            let httpResponse = await fetch(`${baseURL}requests/${id}`, config);
 
             if(httpResponse.status === 200){
                 alert("Request has been approved!!")
