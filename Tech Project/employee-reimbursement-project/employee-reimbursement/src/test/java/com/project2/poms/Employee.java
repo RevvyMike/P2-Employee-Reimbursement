@@ -17,7 +17,7 @@ public class Employee {
     public WebElement Submit;
     @FindBy(id ="log")
     public WebElement LogOut;
-
+    private WebDriver  driver;
 
     public Employee(WebDriver driver){
         PageFactory.initElements(driver, this);

@@ -15,7 +15,7 @@ public class Login {
 
     @FindBy(className = "btn" ) 
     public WebElement signInButton;
-
+    private WebDriver driver;
 
     public Login(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -32,6 +32,11 @@ public class Login {
             this.passwordBox.sendKeys(password);
         
         }
+        public String getAlertText(){
+            String text = this.driver.switchTo().alert().getText();
+            this.driver.switchTo().alert().accept();
+            return text;
+        }    
 
         public void clickButton(){
     
