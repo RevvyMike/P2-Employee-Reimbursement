@@ -20,6 +20,7 @@ public class Employee {
     private WebDriver  driver;
 
     public Employee(WebDriver driver){
+        this.driver = driver;
         PageFactory.initElements(driver, this);
 
     } 

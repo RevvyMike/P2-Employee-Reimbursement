@@ -16,7 +16,9 @@ public class Manager {
     @FindBy(className ="logoutBtn")
     public WebElement logout;
     private WebDriver driver;
+    
     public Manager(WebDriver driver){
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
         public void clickButton(){
