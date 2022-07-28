@@ -49,7 +49,7 @@ public class TestRunner {
         driver= new ChromeDriver(); 
         login= new Login(driver);
         wait = new WebDriverWait(driver,15);
-        employee = new Employee(driver, employeeForE2ETest.getId());
+       // employee = new Employee(driver, employeeForE2ETest.getId());
         manager = new Manager(driver);
          
 }
