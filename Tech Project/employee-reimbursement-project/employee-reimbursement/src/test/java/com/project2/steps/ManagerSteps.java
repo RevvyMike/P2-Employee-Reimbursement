@@ -19,13 +19,14 @@ public class ManagerSteps {
     @Given("The manager is logged into the database")
     public void the_manager_is_logged_into_the_database() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.driver.get("file:///C:/Users/17132/Desktop/P2-Employee-Reimbursement/Tech%20Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web%20pages/manager.html");
+        TestRunner.wait.until(ExpectedConditions.);
+        TestRunner.driver.get("C:/Users/17132/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/P2Manager.html");
     }
 
     @When("The manager views reimbursement requests")
     public void the_manager_views_reimbursement_requests() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.manager.requestInput("");
+        TestRunner.manager.requestInput("good to go my son");
     }
 
     @When("The manager selects list to approve request")
@@ -47,7 +48,7 @@ public class ManagerSteps {
     @When("The manager views reimbursement request")
     public void the_manager_views_reimbursement_request() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.manager.requestInput("");
+        TestRunner.manager.requestInput("problem here");
     }
 
     @When("The manager selects list to deny request")
@@ -60,8 +61,8 @@ public class ManagerSteps {
     public void the_manager_should_be_able_to_save_changes() {
         // Write code here that turns the phrase above into concrete actions
         TestRunner.wait.until(ExpectedConditions.alertIsPresent());
-                    String text = TestRunner.driver.switchTo().alert().getText();
-                    Assert.assertEquals("Request Denied", text);
+        String text = TestRunner.driver.switchTo().alert().getText();
+        Assert.assertEquals("Request Denied", text);
     }
 
         /*
