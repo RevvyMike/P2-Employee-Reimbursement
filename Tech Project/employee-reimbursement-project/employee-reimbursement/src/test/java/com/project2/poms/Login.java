@@ -7,13 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Login {
     
-    @FindBy(className = "textbox")
+    @FindBy(id = "username")
     public WebElement usernameBox;
 
-    @FindBy(className = "textbox1")
+    @FindBy(id = "password")
     public WebElement passwordBox;
 
-    @FindBy(tagName = "btn" ) 
+    @FindBy(className = "btn" ) 
     public WebElement signInButton;
 
 

@@ -24,13 +24,13 @@ public class LoginSteps {
     @When("The employee enters their username")
     public void the_employee_enters_their_username() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.login.enterUsername("bluenardo");
+        TestRunner.login.enterUsername("eric");
     }
 
     @When("The employee enters their password")
     public void the_employee_enters_their_password() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.login.enterPassword("Leaonardo");
+        TestRunner.login.enterPassword("trainer");
     }
 
     @Then("The employee should be able to view table")
@@ -50,13 +50,13 @@ public class LoginSteps {
     @When("the manager enters his correct username")
     public void the_manager_enters_his_correct_username() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.login.enterUsername("splinter");
+        TestRunner.login.enterUsername("mike");
     }
 
     @When("the manager enters his correct password")
     public void the_manager_enters_his_correct_password() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.login.enterPassword("turtlePower");
+        TestRunner.login.enterPassword("renfroe");
     }
   
     @When("The employee clicks button to sign in")
@@ -68,6 +68,7 @@ public class LoginSteps {
     @Then("the manager should be logged in to the manager home page")
     public void the_manager_should_be_logged_in_to_the_manager_home_page() {
         // Write code here that turns the phrase above into concrete actions
+        TestRunner.driver.get("file:///C:/Users/17132/Desktop/P2-Employee-Reimbursement/Tech%20Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web%20pages/manager.html");
         TestRunner.wait.until(ExpectedConditions.alertIsPresent());
             String text = TestRunner.driver.switchTo().alert().getText();
             Assert.assertEquals("you are logged in", text);

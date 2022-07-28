@@ -22,12 +22,13 @@ public class EmployeesServiceTest {
    }
 
    
-//    @Test
-//    public void checkForLoginNegativeTest(){
-//         Employees badLogin = new Employees( "mikeyangelo", "thatguy", "employee");
-//         boolean result = employeeService.checkForLogin(badLogin);
-//         Assert.assertFalse(result);
-//    }
+   @Test
+   public void checkForLoginNegativeTest(){
+        Employees badLogin = new Employees( "mikeyangelo", "thatguy", "employee");
+        Employees result = employeeService.checkForLogin(badLogin);
+      //   Assert.assertFalse(result);
+         Assert.assertNotNull(result);
+   }
 
 
 }
