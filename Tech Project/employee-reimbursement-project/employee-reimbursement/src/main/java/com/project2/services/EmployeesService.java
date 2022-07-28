@@ -22,14 +22,16 @@ public class EmployeesService implements EmployeesServiceInterface{
 
 
     @Override
-    public boolean checkForLogin(Employees checkCredentials){
+    public Employees checkForLogin(Employees checkCredentials){
         List<Employees> listOfEmployees = employeeDao.getAllEmployees();
         for(Employees creds : listOfEmployees){
-            if(creds.getUsername().equals(checkCredentials.getUsername()) && creds.getUserPassword().equals(checkCredentials.getUserPassword())){
-                return true;
+            if(creds.getUsername().equals(checkCredentials.getUsername())){
+                if(creds.getUserPassword().equals(checkCredentials.getUserPassword())){
+                    return creds;
+                }
             }
         } 
-        return false;
+        return checkCredentials;
     }
 
 
