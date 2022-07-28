@@ -51,6 +51,23 @@ public class EmployeesController {
         ctx.status(200);
      };
 
+
+     public Handler employeeLogin = ctx -> { 
+        // List<Employees> employees = this.employeesService.serviceGetAllEmployees();
+        String json = ctx.body();
+        Employees employee = this.gson.fromJson(json, Employees.class);
+        Employees result = this.employeesService.checkForLogin(employee);
+        if(result.getRoles()!= null) {
+            ctx.status(200);
+            String Json = this.gson.toJson(result);
+            ctx.result(Json);
+        } else {
+            ctx.status(400);
+        }
+    };
+
+
+
      public Handler deleteEmployees = ctx -> {
         // the ctx.body() method creates a java string object from the content of the request body
         String json = ctx.body();
