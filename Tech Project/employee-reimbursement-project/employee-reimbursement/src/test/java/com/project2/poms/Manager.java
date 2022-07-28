@@ -7,11 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Manager {
    
-    @FindBy(className ="favoriteStyled")
+    @FindBy(id = "ApproveButton")
     public WebElement approve;
-    @FindBy(className = "favoriteStyled1")
+    @FindBy(id =  "DenyButton")
     public WebElement deny;
-    @FindBy(id = "description")
+    @FindBy(id = "ManagerReason")
     public WebElement description;
     @FindBy(className ="logoutBtn")
     public WebElement logout;

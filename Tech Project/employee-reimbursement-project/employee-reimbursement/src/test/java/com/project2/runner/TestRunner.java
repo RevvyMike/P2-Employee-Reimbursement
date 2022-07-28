@@ -35,7 +35,7 @@ public class TestRunner {
     @BeforeClass
     public static void setup(){
 
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/features/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
         
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -48,14 +48,17 @@ public class TestRunner {
 
         driver= new ChromeDriver(); 
         login= new Login(driver);
-        wait = new WebDriverWait(driver,15);
+        wait = new WebDriverWait(driver,3);
        // employee = new Employee(driver, employeeForE2ETest.getId());
         manager = new Manager(driver);
          
-}
-@AfterClass public static void Teardown(){
-    driver.quit();
-}
+    }
+
+    @AfterClass 
+    public static void teardown(){
+        driver.quit();
+
+    }
 
     
     
