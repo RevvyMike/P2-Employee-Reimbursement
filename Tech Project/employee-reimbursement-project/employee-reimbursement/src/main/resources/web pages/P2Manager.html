@@ -22,6 +22,8 @@
     <!-- <select name="ids" id="idselect" ></select>
     <input id="ManagerReason" type="text" placeholder="Place your reason here">
     <button id="ApproveButton">Approve</button><button id="DenyButton">Deny</button> -->
+    <div class="logoutBtn">
+        <button onclick="logOut()" class="logoutBtn" type="button">LogOut</button>
 </body>
 <script>
     const tbody = document.getElementById("Managertbody");
@@ -31,6 +33,13 @@
     const denyButton = document.getElementById("DenyButton");
     const baseURL = "http://localhost:8080/";
     
+
+//     function loadref(time)
+// {
+//     setTimeout("location.reload(true);",time);
+// }
+
+
     /*
         TODO
             Get All Requests
@@ -66,16 +75,10 @@
                     <td>${request.employee_name}</td>
                     <td>${request.reimbursement_amount}</td>
                     <td>${request.request_reason}</td>
-                    <td><input id="ManagerReason" type="text" placeholder="Place your reason here"></td>
-                    <td><button onclick="updateRequest()">Approve</button></td>
-                    <td><button onclick="denyRequest(${request.id}, '${request.employee_name}', ${request.reimbursement_amount}, '${request.request_reason}')">Deny</button></td>`;
+                    <td><input id="ManagerReason${request.id}" type="text" placeholder="Place your reason here"></td>
+                    <td><button onclick="updateRequest(${request.id})">Approve</button></td>
+                    <td><button onclick="removeRequests(${request.id}, '${request.employee_name}', ${request.reimbursement_amount}, '${request.request_reason}')">Deny</button></td>`;
                 tbody.appendChild(newRow);
-
-                // let idManOption = document.createElement("option");
-                // idManOption.value = request.id;
-                // idManOption.textContent = request.id;        UPDATE ERROR here as well/Table no longer populates if I do this
-                // idSelect.appendChild(idManOption);
-
            }
         } else {
             alert("Wrong, Try Again");
@@ -102,7 +105,7 @@
             let config = {
                 method: 'DELETE',
                 headers:{"Content-Type":"application/json"},
-                body: bookJSON
+                body: requestJson
             }
 
             let httpResponse = await fetch(`${baseURL}requests/${requestId}`, config);
@@ -118,9 +121,18 @@
         }
 
 
-        async function updateRequest(requestId){
+        async function updateRequest(requestId, requestEmployee_Name, requestReimbursement_Amount, requestRequest_Reason){
+            // let manUserInput = document.getElementById(`manuserinput${requestEmployee_Name}`)
+            // let textAmount = document.getElementById(`textamount${requestReimbursement_Amount}`)
+            let reason = document.getElementById(`ManagerReason${requestId}`)
+
+            
+
             let requestObject = {
-                request_reason: managerReason.value,
+                employee_name: requestEmployee_Name,
+                reimbursement_amount: requestReimbursement_Amount,
+                request_reason: reason.value
+
             }
 
             let requestJson = JSON.stringify(requestObject);
@@ -131,7 +143,7 @@
                 body: requestJson
             };
 
-            let httpResponse = await fetch(`${baseURL}requests/${id}`, config);
+            let httpResponse = await fetch(`${baseURL}requests/${requestId}`, config);
 
             if(httpResponse.status === 200){
                 alert("Request has been approved!!")
@@ -139,7 +151,12 @@
                 let body = await httpResponse.json();
                 alert(body.message);
             }
+            
+        }
 
+        function logOut(){
+            window.location.href = "login.html";
+            alert("You are logged out");
         }
 
     getAllRequests();
