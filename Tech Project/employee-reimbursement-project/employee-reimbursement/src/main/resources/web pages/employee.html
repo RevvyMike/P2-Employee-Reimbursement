@@ -26,6 +26,7 @@
               <!-- <input id="eName" type="text" class="form-control" placeholder="Employee Id"> -->
               </div>
               <div class="formgroup1">
+
               <input id="amount" type="text" class="form-control" placeholder="Request Amount">
               </div>
               <div class="formgroup2">
@@ -52,7 +53,45 @@
           </tr>
       </tbody>
   </table>
-  <Script>
+
+  <script>
+
+    const submit = document.getElementById("submit");
+    submit.addEventListener("click", createRequest);
+ 
+    async function createRequest(){
+       
+         let createRequest =  {
+             employee_name: document.getElementById("employee_name").value,
+             reimbursement_amount: document.getElementById("request_amount").value,
+             request_reason: document.getElementById("reason").value
+          }
+ 
+         // now that I have the key/value pairs information I need to convert it into a JSON
+         let createRequestJSON = JSON.stringify(createRequest);
+ 
+         // now I can set up my HTTP request configurations
+         let config = {
+             method:"POST", // method is a reference to the kind of request you are making (the verb): GET is the default
+             headers:{'Content-Type':"application/json"}, // some APIs will return an error message without this value included
+             body: createRequestJSON
+         }
+
+         let httpResponse = await fetch("http://localhost:8080/requests", config); // make sure to enter the url assigned to you
+ 
+         if(httpResponse.status === 201){ // 201 means a request was made successfully - POST
+             alert("Request Submitted");
+             
+         } else {
+            let responseBody = await httpResponse.json();
+            alert(responseBody.detail);
+
+         }
+       
+    }
+
+
+  
     const tbody = document.getElementById("tbody");
     const amountInput = document.getElementById("amount");
     const descriptionInput = document.getElementById("descript");
@@ -87,46 +126,12 @@
 
     }
 
-
-
-
-    async function create(){
-        // to let my api validate login information I need to attach the username and password to the http request
-        let createRequest = {
-        
-        
-        id: document.getElementById("eName"),
-        reimbursement_amount: document.getElementById("amount"),
-        request_reason: document.getElementById("descript")
-    }
-
-  
-        
-        
-  let assignJSON = JSON.stringify(createRequest);
-
-        let config ={
-            method: "POST",
-            headers:{'Content-Type':"application/json"},
-            body: assignJSON
-    }
-        
-    let httpResponse = await fetch("http://localhost:8080/requests",config); 
-
-    if(httpResponse.status === 201){ // 200 basically means request made successfully
-        alert(`Request Submitted`);
-                        }else{
-                let responseBody = await httpResponse.json();
-                alert(responseBody.detail);
-            }
-
-    }
-
     function logOut(){
             window.location.href = "login.html";
             alert("You are logged out");
         }
 
     getPreviousRequests()
-</Script>
+</script>
+
 </html>
