@@ -4,7 +4,7 @@
 }
 .mainTable
 {
-    text-align: center;
+    text-align: left;
     margin-top: 10px;
 }
 
@@ -19,7 +19,7 @@ table tr:not(:first-child):hover
     background-color: #ddd;
 }
 table{
-    width: 60%;
+    width: 70%;
     border-collapse: collapse;
     text-align: center;
 }
