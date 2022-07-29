@@ -46,7 +46,7 @@ public class TestRunner {
         Employees employeeForE2ETest = employeesDao.createEmployees(new Employees(0,"","",""));
         
 
-        driver= new ChromeDriver(); 
+         
         login= new Login(driver);
         wait = new WebDriverWait(driver,3);
        // employee = new Employee(driver, employeeForE2ETest.getId());
