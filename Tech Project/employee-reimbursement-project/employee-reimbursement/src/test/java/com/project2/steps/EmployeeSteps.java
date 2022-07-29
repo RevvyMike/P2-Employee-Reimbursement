@@ -17,8 +17,7 @@ public class EmployeeSteps {
     @When("The employee checks on current status")
     public void the_employee_checks_on_current_status() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.driver.get("file:///C:/Users/17132/Desktop/P2-Employee-Reimbursement/Tech%20Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web%20pages/employee.html");
-
+        TestRunner.driver.get("C:/Users/17132/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/EMPLOYEEdavid.html");
     }
 
      /*
@@ -26,10 +25,10 @@ public class EmployeeSteps {
         reimbursement request
     */
 
-    @When("The employee enters the employees id")
-    public void the_employee_enters_the_employees_id() {
+    @When("The employee enters the employees username")
+    public void the_employee_enters_the_employees_username() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.employee.employeeIdInput("");
+        TestRunner.employee.employeeIdInput("Leonardo");
     }
 
    
@@ -57,6 +56,7 @@ public class EmployeeSteps {
         TestRunner.wait.until(ExpectedConditions.alertIsPresent());
         String text = TestRunner.driver.switchTo().alert().getText();
         Assert.assertEquals("Request Submitted", text);
+        TestRunner.driver.switchTo().alert().accept();
     } 
 
     /*
@@ -72,6 +72,9 @@ public class EmployeeSteps {
     @Then("The employee should be logged out and be redirected to the homepage")
     public void the_employee_should_be_logged_out_and_be_redirected_to_the_homepage() {
         // Write code here that turns the phrase above into concrete actions
+        String text = TestRunner.driver.switchTo().alert().getText();
+        Assert.assertEquals("You are logged out", text);
+        TestRunner.driver.switchTo().alert().accept();
         TestRunner.driver.get("file:///C:/Users/17132/Desktop/P2-Employee-Reimbursement/Tech%20Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web%20pages/login.html");
     }
 

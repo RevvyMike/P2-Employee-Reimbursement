@@ -21,8 +21,8 @@ Feature:  The employee scenarios
 
     Scenario: As an employee I want create a reimbursement request via webpage
 
-        Given  The employee is logged into the database to make a reimbursement request
-        When   The employee enters the employees id 
+        #Given  The employee is logged into the database to make a reimbursement request
+        When   The employee enters the employees username 
         When   The employee enters a dollar amount less than or equal to $1000
         When   The employee enters a request description
         When   The employee clicks on the submit button
