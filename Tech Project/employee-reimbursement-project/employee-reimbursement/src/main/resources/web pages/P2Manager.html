@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <title>AAA Manager Page</title>
 </head>
 <body onload= "JavaScript:loadref(5000)">
+    <img src="tmnt.jpg" alt>
+    <div class="mainTable">
     <h1>Manager Reimbursement Table</h1>
+    <table id="table" border ="1">
     <!-- Table to hold reimbursement info (maybe seperate reason/approve & deny section) -->
     <table>
         <thead>
@@ -19,6 +23,8 @@
             <!-- Table will be dynamic -->
         </tbody>                                            
     </table>
+</table>
+</div>
     <!-- <select name="ids" id="idselect" ></select>
     <input id="ManagerReason" type="text" placeholder="Place your reason here">
     <button id="ApproveButton">Approve</button><button id="DenyButton">Deny</button> -->
