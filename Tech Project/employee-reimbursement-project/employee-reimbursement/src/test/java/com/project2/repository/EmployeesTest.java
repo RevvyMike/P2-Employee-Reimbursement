@@ -53,7 +53,7 @@ public class EmployeesTest {
 
     @Test
     public void removeEmployeesPositiveTest(){
-        Employees requestToBeDeleted = new Employees(-9, "mike n mike", "mike mike", "employee");
+        Employees requestToBeDeleted = new Employees(291, "mike", "renfroe", "employee");
         boolean result = employeeDao.removeEmployees(requestToBeDeleted);
         Assert.assertTrue(result);
     }
