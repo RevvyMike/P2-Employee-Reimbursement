@@ -3,7 +3,7 @@
 <head>
     <title>AAA Manager Page</title>
 </head>
-<body>
+<body onload= "JavaScript:loadref(5000)">
     <h1>Manager Reimbursement Table</h1>
     <!-- Table to hold reimbursement info (maybe seperate reason/approve & deny section) -->
     <table>
@@ -34,10 +34,10 @@
     const baseURL = "http://localhost:8080/";
     
 
-//     function loadref(time)
-// {
-//     setTimeout("location.reload(true);",time);
-// }
+    function loadref(time)
+{
+    setTimeout("location.reload(true);",time);
+}
 
 
     /*
