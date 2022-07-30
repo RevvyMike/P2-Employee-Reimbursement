@@ -9,7 +9,7 @@ Feature: Employee should be able to view previous reimbursement requests
     Scenario: As an employee I want create a reimbursement request so I can get money back
 
         Given   The employee is in request field on homepage
-        When    The employee types request readon into request reason input
+        When    The employee types request reason into request reason input
         When    The employee types dollar amount into dollar request input
         When    Then employee clicks submit request button
         Then    The employee should be ready to log out
