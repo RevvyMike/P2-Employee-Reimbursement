@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="style.css">
     <title>AAA Manager Page</title>
 </head>
-<body onload= "JavaScript:loadref(12000)">
+<body> 
     <img src="tmnt.jpg" alt>
     <div class="mainTable">
     <h1>Manager Reimbursement Table</h1>
@@ -16,8 +16,7 @@
             <th>User</th>
             <th>Amount</th>
             <th>Reason for Request</th>
-            <th>Manage Decision</th>
-            <th>Approve</th>
+            <th>Manager Reason</th>
             <th>Deny</th>    
         </thead>
         <tbody id="Managertbody">
@@ -26,9 +25,10 @@
     </table>
 </table>
 </div>
-    <!-- <select name="ids" id="idselect" ></select>
+    <!-- <select name="ids" id="idselect" ></select> -->
     <input id="ManagerReason" type="text" placeholder="Place your reason here">
-    <button id="ApproveButton">Approve</button><button id="DenyButton">Deny</button> -->
+    <button onclick="updateRequest();window.location.reload()"; id="ApproveButton">Approve</button>
+    <!-- <button onclick="updateRequest()" id="ApproveButton">Approve</button>  -->
     <div class="logoutBtn">
         <button onclick="logOut()" class="logoutBtn" type="button">LogOut</button>
 </body>
@@ -41,10 +41,10 @@
     const baseURL = "http://localhost:8080/";
     
 
-    function loadref(time)
-{
-    setTimeout("location.reload(true);",time);
-}
+//     function loadref(time)
+// {
+//     setTimeout("location.reload(true);",time);
+// }
 
 
     /*
@@ -82,8 +82,7 @@
                     <td>${request.employee_name}</td>
                     <td>${request.reimbursement_amount}</td>
                     <td>${request.request_reason}</td>
-                    <td><input id="ManagerReason${request.id}" type="text" placeholder="Place your reason here"></td>
-                    <td><button onclick="updateRequest(${request.id})">Approve</button></td>
+                    <td>${request.manager_reason}</td>
                     <td><button onclick="removeRequests(${request.id}, '${request.employee_name}', ${request.reimbursement_amount}, '${request.request_reason}')">Deny</button></td>`;
                 tbody.appendChild(newRow);
            }
@@ -93,7 +92,7 @@
 
     }
 
-    async function removeRequests(requestId, requestEmployee_Name, requestReimbursement_Amount, requestRequest_Reason){
+    async function removeRequests(requestId, requestEmployee_Name, requestReimbursement_Amount, requestRequest_Reason, requestManager_Reason){
             /*
                 Craft json
                 create config
@@ -104,7 +103,8 @@
             let requestObject = {
                 employee_name: requestEmployee_Name,
                 reimbursement_amount: requestReimbursement_Amount,
-                request_reason: requestRequest_Reason
+                request_reason: requestRequest_Reason,
+                manager_reason: requestManagerReason
             }
 
             let requestJson = JSON.stringify(requestObject);
@@ -138,7 +138,8 @@
             let requestObject = {
                 employee_name: requestEmployee_Name,
                 reimbursement_amount: requestReimbursement_Amount,
-                request_reason: reason.value
+                request_reason: reason.value,
+                manager_reason: requestManager_Reason
 
             }
 

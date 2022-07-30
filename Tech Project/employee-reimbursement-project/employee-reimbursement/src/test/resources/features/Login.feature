@@ -1,17 +1,17 @@
-Feature: Users of my application should be able to login to their respective homepages
+Feature:  Users should be able to login to access their homepages
 
-    Scenario: As a manager I want to sign in so I can view my custom homepage
+    Scenario: As a manager, I want to sign in to view my homepage
 
-        Given   the employee is on the login page
-        When    the manager enters his correct username
-        When    the manager enters his correct password
-        When    the employee clicks the login button
-        Then    the manager should be logged in to the manager home page
+        Given  The manager is on the login page
+        When   The manager enters his correct username
+        When   The manager enters his correct password
+        When   The manager clicks the login button
+        Then   The manager should be logged into the manager home page
 
-    Scenario: As a tester I want to sign in so I can view my custom homepage
+    Scenario: As an employee, I want to sign in to view my homepage
 
-        Given   the employee is on the login page
-        When    the tester enters his correct username
-        When    the tester enters his correct password
-        When    the employee clicks the login button
-        Then    the tester should be logged in to the tester home page
+        Given  The employee is on the login page
+        When   The employee enters his correct username
+        When   The employee enters his correct password
+        When   The employee clicks the login button
+        Then   The employee should be logged into the employee home page

@@ -17,6 +17,7 @@ public class Reimbursement {
     private String employee_name;
     private int reimbursement_amount;
     private String request_reason;
+    private String manager_reason;
     
     
     // empty constructor for hibernate
@@ -24,18 +25,20 @@ public class Reimbursement {
 
 
     // partial constructor to ensure we don't assign a bad id
-    public Reimbursement(String employee_name, int reimbursement_amount, String request_reason) {
+    public Reimbursement(String employee_name, int reimbursement_amount, String request_reason, String manager_reason) {
         this.employee_name = employee_name;
         this.reimbursement_amount = reimbursement_amount;
         this.request_reason = request_reason;
+        this.manager_reason = manager_reason;
     }
 
     // This constructor will allow our code to fully create ManagerTable objects from pre-existing data in our table
-    public Reimbursement(int id, String employee_name, int reimbursement_request, String request_reason) {
+    public Reimbursement(int id, String employee_name, int reimbursement_request, String request_reason, String manager_reason) {
         this.id = id;
         this.employee_name = employee_name;
         this.reimbursement_amount = reimbursement_request;
         this.request_reason = request_reason;
+        this.manager_reason = manager_reason;
     }
 
     //  getters & setters
@@ -78,12 +81,22 @@ public class Reimbursement {
         this.request_reason = request_reason;
     }
 
-    // this method is to help us better see what data we are working with our tables.
-    @Override
-    public String toString() {
-        return "ReimbursementTable [employeename=" + employee_name + ", id=" + id + ", reimbursement_amount="
-                + reimbursement_amount + ", request_reason=" + request_reason + "]";
+    public String getManagerReason(){
+        return manager_reason;
     }
 
+    public void setManager_Reason(String manager_reason){
+        this.manager_reason = manager_reason;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Reimbursement [employee_name=" + employee_name + ", id=" + id + ", manager_reason=" + manager_reason
+                + ", reimbursement_amount=" + reimbursement_amount + ", request_reason=" + request_reason + "]";
+    }
+
+    // this method is to help us better see what data we are working with our tables.
+   
     
 }

@@ -19,7 +19,7 @@ public class ManagerSteps {
     @Given("The manager is logged into the database")
     public void the_manager_is_logged_into_the_database() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.wait.until(ExpectedConditions.);
+        // TestRunner.wait.until(ExpectedConditions.);
         TestRunner.driver.get("C:/Users/17132/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/P2Manager.html");
     }
 
