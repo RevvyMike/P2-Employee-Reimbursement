@@ -1,36 +1,25 @@
-Feature:  The manager scenarios
+Feature: Manager should be able to view reimbursement requests
 
-    Scenario: As the manager, I want to view tables in the database
+    Scenario: As a manager, I want to view reimbursement requests so that I can address them
 
-        Given The manager is on the login page
-        When  The manager enters their username
-        When  The manager enters their password
-        When  The manager clicks button to sign in
-        Then  The manager should be able to view tables
+        Given The manager is on their homepage
+        When  The manager views the reimbursement requests
+        Then  The manager should be ready to approve or deny requests     
 
-# Feature: The manager should be able to approve reimbursement requests
+    Scenario: As a manager, I want to approve any reimbursement requests
 
-    Scenario: As a manager, I want to approve reimbursement requests
+        Given  The manager is viewing requests table on homepage
+        When   The manager the manager clicks approve button
+        Then   The manager should be ready to log out
 
-        Given The manager is logged into the database
-        When  The manager views reimbursement requests
-        When  The manager selects list to approve request
-        Then  The manager should be able to save all changes
+    Scenario: As a manager, I want to deny any reimbursement requests
 
-# Feature: The manager should be able to deny reimbursement requests
+        Given  The manager is viewing request table on homepage
+        When   The manager clicks deny button
+        Then   The manager should be ready to log out
 
-    Scenario: As a manager, I want to deny reimbursement requests
+    Scenario: As a manager I want to log out
 
-        Given  The manager is logged into the database
-        When   The manager views reimbursement requests
-        When   The manager selects list to deny request
-        Then   The manager should be able to save all changes 
-
-
-# Feature: Manager should be able to log out of the database after saving all changes
-
-    Scenario: As a manager I should be able to log out of the webpage 
-
-        Given  The manager is logged into the database
-        When   The manager clicks the button to sign out
-        Then   The manager should log out and be redirected to the homepage 
+        Given   The manager is on the manager homepage
+        When    The manager clicks log out button
+        Then    The manager should be logged out  

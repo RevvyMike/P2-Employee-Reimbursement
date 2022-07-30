@@ -15,7 +15,7 @@ select * from employees;
 
 --reimbursement table--
 drop table reimbursement;
-create table reimbursement (id serial primary key, employee_id int references AAA(id), reimbursement_request integer, request_reason varchar(100));
+create table reimbursement (id serial primary key, employee_id int references AAA(id), reimbursement_request integer, request_reason varchar(100), manager_reason varchar(100));
 
 select * from reimbursement;
 

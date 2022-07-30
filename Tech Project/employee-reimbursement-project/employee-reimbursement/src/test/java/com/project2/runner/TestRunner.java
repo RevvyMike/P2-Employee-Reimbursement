@@ -41,7 +41,7 @@ public class TestRunner {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         ReimbursementDAOInterface reimbursementDao = new ReimbursementDao();
-        Reimbursement reimbursementForE2ETest = reimbursementDao.createReimbursement(new Reimbursement("",700, "comic books E2E"));
+        Reimbursement reimbursementForE2ETest = reimbursementDao.createReimbursement(new Reimbursement("Mike",700, "comic books E2E", "Approved: I love comics"));
         EmployeesDAOInterface employeesDao = new EmployeesDao();
         Employees employeeForE2ETest = employeesDao.createEmployees(new Employees(0,"","",""));
         
