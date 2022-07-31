@@ -11,7 +11,7 @@ public class Employee {
     public WebElement EmployeeId;
     @FindBy(id = "amount")
     public WebElement RequestAmount;
-    @FindBy(id ="descript")
+    @FindBy(id ="reason")
     public WebElement RequestDescription;
         @FindBy(id ="sub")
     public WebElement Submit;
@@ -37,9 +37,9 @@ public class Employee {
     
     }
 
-    public void employeeDescription(String descript){
+    public void employeeDescription(String reason){
     
-        this.RequestDescription.sendKeys(descript);
+        this.RequestDescription.sendKeys(reason);
     
     }
 

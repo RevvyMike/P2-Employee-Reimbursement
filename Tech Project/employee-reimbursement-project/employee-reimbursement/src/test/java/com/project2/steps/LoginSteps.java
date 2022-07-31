@@ -1,6 +1,4 @@
 package com.project2.steps;
-import org.junit.Assert;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.project2.runner.TestRunner;
 
@@ -10,70 +8,58 @@ import io.cucumber.java.en.When;
 
 public class LoginSteps {
     
+    @Given("The manager is on the login page")
+    public void the_manager_is_on_the_login_page() {
+        TestRunner.driver.get("File://C:/Users/Mike/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/login.html");
+    }
 
-    /*
-     Steps for Scenario logging In 
-     should be able to view request table
-    */
+    @When("The manager enters his correct username")
+    public void the_manager_enters_his_correct_username() {
+        TestRunner.login.enterUsername("MasterSplinter");
+}
+
+    @When("The manager enters his correct password")
+    public void the_manager_enters_his_correct_password() {
+        TestRunner.login.enterPassword("rat");
+}
+
+    @When("The manager clicks the login button")
+    public void the_manager_clicks_the_login_button() {
+        TestRunner.login.clickButton();
+}
+
+
+    @Then("The manager should be logged into the manager home page")
+    public void the_manager_should_be_logged_into_the_manager_home_page() {
+        TestRunner.driver.get("File://C:/Users/Mike/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/P2Manager.html");
+}
+
+
     @Given("The employee is on the login page")
     public void the_employee_is_on_the_login_page() {
-        // Write code here that turns the phrase above into concrete actions
-        TestRunner.driver.get("file:///C:/Users/17132/Desktop/P2-Employee-Reimbursement/Tech%20Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web%20pages/login.html");
-    }
+        TestRunner.driver.get("File://C:/Users/Mike/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/login.html");
+}
 
-    @When("The employee enters their username")
-    public void the_employee_enters_their_username() {
-        // Write code here that turns the phrase above into concrete actions
+
+    @When("The employee enters his correct username")
+    public void the_employee_enters_his_correct_username() {
         TestRunner.login.enterUsername("Leonardo");
-    }
+}
 
-    @When("The employee enters their password")
-    public void the_employee_enters_their_password() {
-        // Write code here that turns the phrase above into concrete actions
+    @When("The employee enters his correct password")
+    public void the_employee_enters_his_correct_password() {
         TestRunner.login.enterPassword("leo");
-    }
+}
 
-    @Then("The employee should be able to view table")
-    public void the_employee_should_be_able_to_view_table() {
-        // Write code here that turns the phrase above into concrete actions
-        TestRunner.driver.get("file:///C:/Users/17132/Desktop/P2-Employee-Reimbursement/Tech%20Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web%20pages/employee.html");
-    }
-    @Then("the employee should be logged in to the manager home page")
-    public void the_employee_should_be_logged_in_to_the_manager_home_page() {
-        // Write code here that turns the phrase above into concrete actions
-        TestRunner.wait.until(ExpectedConditions.alertIsPresent());
-            String text = TestRunner.driver.switchTo().alert().getText();
-            Assert.assertEquals("you are logged in", text);
-            TestRunner.driver.switchTo().alert().accept();
-    }
-    
-    @When("the manager enters his correct username")
-    public void the_manager_enters_his_correct_username() {
-        // Write code here that turns the phrase above into concrete actions
-        TestRunner.login.enterUsername("MasterSplinter");
-    }
-
-    @When("the manager enters his correct password")
-    public void the_manager_enters_his_correct_password() {
-        // Write code here that turns the phrase above into concrete actions
-        TestRunner.login.enterPassword("rat");
-    }
-  
-    @When("The employee clicks button to sign in")
-    public void the_employee_clicks_button_to_sign_in() {
-        // Write code here that turns the phrase above into concrete actions
+    @When("The employee clicks the login button")
+    public void the_employee_clicks_the_login_button() {
         TestRunner.login.clickButton();
-    }
+}
 
-    @Then("the manager should be logged in to the manager home page")
-    public void the_manager_should_be_logged_in_to_the_manager_home_page() {
-        // Write code here that turns the phrase above into concrete actions
-        TestRunner.driver.get("file:///C:/Users/17132/Desktop/P2-Employee-Reimbursement/Tech%20Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web%20pages/P2Manager.html");
-        TestRunner.wait.until(ExpectedConditions.alertIsPresent());
-            String text = TestRunner.driver.switchTo().alert().getText();
-            Assert.assertEquals("you are logged in", text);
-            TestRunner.driver.switchTo().alert().accept();
-    }
+    @Then("The employee should be logged into the employee home page")
+    public void the_employee_should_be_logged_into_the_employee_home_page() {
+        TestRunner.driver.get("File://C:/Users/Mike/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/EMPLOYEEdavid.html");
+}
 
 
 
