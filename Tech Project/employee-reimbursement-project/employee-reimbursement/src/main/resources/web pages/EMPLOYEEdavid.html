@@ -22,9 +22,9 @@
       <div class="col-md-7 register-right">
           <h2>Reimbursement Request</h2>
           <div class="reimbursement-form">
-              <div class="formgroup">
+              <!-- <div class="formgroup">
               <input type="text" class="form-control" placeholder="Employee Id">
-              </div>
+              </div> -->
               <div class="formgroup1">
               <input id="request_amount" type="text" class="form-control" placeholder="Request Amount">
               </div>
@@ -99,7 +99,7 @@
     // attempt to only print unique username requests.
     let username =localStorage.getItem("username");
     console.log(username);
-    let httpResponse = await fetch(`${baseURL}requests`);
+    let httpResponse = await fetch("http://localhost:8080/requests");
     if(httpResponse.status === 200){
 
 
