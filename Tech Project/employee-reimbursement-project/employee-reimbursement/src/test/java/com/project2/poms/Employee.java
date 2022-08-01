@@ -9,13 +9,13 @@ public class Employee {
     
     @FindBy(id ="eName")
     public WebElement EmployeeId;
-    @FindBy(id = "amount")
+    @FindBy(id = "request_amount")
     public WebElement RequestAmount;
     @FindBy(id ="reason")
     public WebElement RequestDescription;
-        @FindBy(id ="sub")
+        @FindBy(id ="submit")
     public WebElement Submit;
-    @FindBy(id ="log")
+    @FindBy(id ="logout")
     public WebElement LogOut;
     private WebDriver  driver;
 

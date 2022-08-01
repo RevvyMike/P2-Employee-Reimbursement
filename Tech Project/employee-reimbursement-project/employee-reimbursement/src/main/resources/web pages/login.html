@@ -54,7 +54,8 @@
             let responseBody = await httpResponse.json();
 
             if(responseBody.roles === "employee"){
-                localStorage.setItem("username", username.value);
+                sessionStorage.setItem("username", username.value);
+                // sessionStorage.setItem("password", userPassword.value);
                 window.location.href = "EMPLOYEEdavid.html"
             } else {
                 window.location.href = "P2Manager.html";

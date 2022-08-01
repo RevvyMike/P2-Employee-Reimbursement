@@ -52,13 +52,11 @@ public class EmployeeSteps {
 
     @Then("The employee should be ready to log out")
     public void the_employee_should_be_ready_to_log_out() {
-    TestRunner.wait.until(ExpectedConditions.alertIsPresent());
-    String text = TestRunner.driver.switchTo().alert().getText();
-    Assert.assertEquals("you are logged out", text);
-    TestRunner.driver.switchTo().alert().accept();
-    TestRunner.wait.until(ExpectedConditions.titleIs("AAA Login Page"));
-    String title = TestRunner.driver.getTitle();
-    Assert.assertEquals("AAA Login Page", title);
+        TestRunner.wait.until(ExpectedConditions.alertIsPresent());
+        Assert.assertEquals("Request Submitted", TestRunner.driver.switchTo().alert().getText());
+        TestRunner.driver.switchTo().alert().accept();
+        // TestRunner.wait.until(ExpectedConditions.titleIs("AAA Login Page"));
+        // Assert.assertEquals("AAA Login Page", TestRunner.driver.getTitle());
 }
 
 
@@ -67,10 +65,10 @@ public class EmployeeSteps {
 
 
 
-    @Given("The employee is on the manager homepage")
-public void the_employee_is_on_the_manager_homepage() {
-    TestRunner.driver.get("File://C:/Users/Mike/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/EMPLOYEEdavid.html");
-}
+//     @Given("The employee is on the manager homepage")
+// public void the_employee_is_on_the_manager_homepage() {
+//     TestRunner.driver.get("File://C:/Users/Mike/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/EMPLOYEEdavid.html");
+// }
 
     @When("The employee clicks log out button")
     public void the_employee_clicks_log_out_button() {
@@ -79,12 +77,10 @@ public void the_employee_is_on_the_manager_homepage() {
     @Then("The employee should be logged out")
     public void the_employee_should_be_logged_out() {
         TestRunner.wait.until(ExpectedConditions.alertIsPresent());
-        String text = TestRunner.driver.switchTo().alert().getText();
-        Assert.assertEquals("you are logged out", text);
+        Assert.assertEquals("You are logged out", TestRunner.driver.switchTo().alert().getText());
         TestRunner.driver.switchTo().alert().accept();
         TestRunner.wait.until(ExpectedConditions.titleIs("AAA Login Page"));
-        String title = TestRunner.driver.getTitle();
-        Assert.assertEquals("AAA Login Page", title);
+        Assert.assertEquals("AAA Login Page", TestRunner.driver.getTitle());
 
 }
 
