@@ -68,8 +68,9 @@
        
          let createRequest =  {
             //  employee_name: document.getElementById("employee_name").value,..
-             reimbursement_amount: document.getElementById("request_amount").value,
-             request_reason: document.getElementById("reason").value
+            // employee_name: sessionStorage.getItem("username"),
+            reimbursement_amount: document.getElementById("request_amount").value,
+            request_reason: document.getElementById("reason").value
           }
  
          // now that I have the key/value pairs information I need to convert it into a JSON
@@ -97,7 +98,7 @@
     async function getPreviousRequests(){
 
     // attempt to only print unique username requests.
-    let username =localStorage.getItem("username");
+    let username = sessionStorage.getItem("username");
     console.log(username);
     let httpResponse = await fetch("http://localhost:8080/requests");
     if(httpResponse.status === 200){

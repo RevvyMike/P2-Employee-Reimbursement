@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Login {
     
+    private WebDriver driver;
+
     @FindBy(id = "username")
     public WebElement usernameBox;
 
@@ -15,7 +17,7 @@ public class Login {
 
     @FindBy(className = "btn" ) 
     public WebElement signInButton;
-    private WebDriver driver;
+    
 
     public Login(WebDriver driver){
         this.driver = driver;
@@ -23,9 +25,9 @@ public class Login {
     }
 
     
-        public void enterUsername(String Username){
+        public void enterUsername(String username){
 
-            this.usernameBox.sendKeys(Username);
+            this.usernameBox.sendKeys(username);
         }
 
         public void enterPassword(String password){
@@ -33,11 +35,11 @@ public class Login {
             this.passwordBox.sendKeys(password);
         
         }
-        public String getAlertText(){
-            String text = this.driver.switchTo().alert().getText();
-            this.driver.switchTo().alert().accept();
-            return text;
-        }    
+        // public String getAlertText(){
+        //     String text = this.driver.switchTo().alert().getText();
+        //     this.driver.switchTo().alert().accept();
+        //     return text;
+        // }    
 
         public void clickButton(){
     
