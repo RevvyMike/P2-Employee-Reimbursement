@@ -1,5 +1,12 @@
 package com.project2.steps;
 
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import com.project2.runner.TestRunner;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,15 +16,13 @@ public class ManagerSteps {
 
     @Given("The manager is on their homepage")
     public void the_manager_is_on_their_homepage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        TestRunner.driver.get("File://C:/Users/Mike/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/P2Manager.html");
 }
 
 
     @When("The manager the manager clicks approve button")
     public void the_manager_the_manager_clicks_approve_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       TestRunner.manager.clickButton();
     }
     @Then("The manager should be ready to log out")
     public void the_manager_should_be_ready_to_log_out() {
@@ -28,8 +33,7 @@ public class ManagerSteps {
 
     @When("The manager clicks deny button")
     public void the_manager_clicks_deny_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        TestRunner.manager.clickButton1();
     }
 
 
@@ -51,13 +55,14 @@ public class ManagerSteps {
     
     @When("The manager clicks log out button")
     public void the_manager_clicks_log_out_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       TestRunner.manager.clickButton2();
+      
     }
     @Then("The manager should be logged out")
     public void the_manager_should_be_logged_out() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        TestRunner.wait.until(ExpectedConditions.titleIs("AAA Login Page"));
+        Assert.assertEquals("AAA Login Page", TestRunner.driver.getTitle());
+        TestRunner.driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
     }
 
 

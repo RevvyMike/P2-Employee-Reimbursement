@@ -13,7 +13,7 @@ public class Manager {
     public WebElement deny;
     @FindBy(id = "ManagerReason")
     public WebElement description;
-    @FindBy(className ="logoutBtn")
+    @FindBy(id = "Logged")
     public WebElement logout;
     private WebDriver driver;
     

@@ -37,7 +37,7 @@ public class TestRunner {
 
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver,5);
+        wait = new WebDriverWait(driver,15);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         login= new Login(driver);
         manager = new Manager(driver);

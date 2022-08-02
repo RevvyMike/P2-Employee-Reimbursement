@@ -46,18 +46,21 @@ public class EmployeeSteps {
     }
     @When("Then employee clicks submit request button")
     public void then_employee_clicks_submit_request_button() {
-      TestRunner.employee.clickButton();
-}
-
-
-    @Then("The employee should be ready to log out")
-    public void the_employee_should_be_ready_to_log_out() {
+        TestRunner.employee.clickButton();       
         TestRunner.wait.until(ExpectedConditions.alertIsPresent());
         Assert.assertEquals("Request Submitted", TestRunner.driver.switchTo().alert().getText());
         TestRunner.driver.switchTo().alert().accept();
-        // TestRunner.wait.until(ExpectedConditions.titleIs("AAA Login Page"));
-        // Assert.assertEquals("AAA Login Page", TestRunner.driver.getTitle());
 }
+
+
+//     @Then("The employee should be ready to log out")
+//     public void the_employee_should_be_ready_to_log_out() {
+//         TestRunner.wait.until(ExpectedConditions.alertIsPresent());
+//         Assert.assertEquals("Request Submitted", TestRunner.driver.switchTo().alert().getText());
+//         TestRunner.driver.switchTo().alert().accept();
+//         // TestRunner.wait.until(ExpectedConditions.titleIs("AAA Login Page"));
+//         // Assert.assertEquals("AAA Login Page", TestRunner.driver.getTitle());
+// }
 
 
 

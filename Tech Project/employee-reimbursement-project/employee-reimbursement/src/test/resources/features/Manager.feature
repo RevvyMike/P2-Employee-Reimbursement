@@ -22,4 +22,4 @@ Feature: Manager should be able to view reimbursement requests
 
         # Given   The manager is on their homepage
         When    The manager clicks log out button
-        Then    The manager should be logged out  
+        # Then    The manager should be logged out  
