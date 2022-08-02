@@ -1,5 +1,10 @@
 package com.project2.steps;
 
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.project2.runner.TestRunner;
 
 import io.cucumber.java.en.Given;
@@ -31,7 +36,10 @@ public class LoginSteps {
 
     @Then("The manager should be logged into the manager home page")
     public void the_manager_should_be_logged_into_the_manager_home_page() {
-        TestRunner.driver.get("File://C:/Users/Mike/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/P2Manager.html");
+        TestRunner.wait.until(ExpectedConditions.titleIs("AAA Manager Page"));
+        Assert.assertEquals("AAA Manager Page", TestRunner.driver.getTitle());
+        TestRunner.driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        // TestRunner.driver.get("File://C:/Users/Mike/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/P2Manager.html");
 }
 
 
@@ -58,7 +66,10 @@ public class LoginSteps {
 
     @Then("The employee should be logged into the employee home page")
     public void the_employee_should_be_logged_into_the_employee_home_page() {
-        TestRunner.driver.get("File://C:/Users/Mike/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/EMPLOYEEdavid.html");
+        TestRunner.wait.until(ExpectedConditions.titleIs("Reimbursement Request"));
+        Assert.assertEquals("Reimbursement Request", TestRunner.driver.getTitle());
+        TestRunner.driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        // TestRunner.driver.get("File://C:/Users/Mike/Desktop/P2-Employee-Reimbursement/Tech Project/employee-reimbursement-project/employee-reimbursement/src/main/resources/web pages/EMPLOYEEdavid.html");
 }
 
 

@@ -30,7 +30,7 @@
     <button onclick="updateRequest();window.location.reload()"; id="ApproveButton">Approve</button>
     <!-- <button onclick="updateRequest()" id="ApproveButton">Approve</button>  -->
     <div class="logoutBtn">
-        <button onclick="logOut()" class="logoutBtn" type="button">LogOut</button>
+        <button id="Logged" onclick="logOut()" class="logoutBtn" type="button">LogOut</button>
 </body>
 <script>
     const tbody = document.getElementById("Managertbody");
@@ -83,7 +83,7 @@
                     <td>${request.reimbursement_amount}</td>
                     <td>${request.request_reason}</td>
                     <td>${request.manager_reason}</td>
-                    <td><button onclick="removeRequests(${request.id}, '${request.employee_name}', ${request.reimbursement_amount}, '${request.request_reason}')">Deny</button></td>`;
+                    <td><button id= "DenyButton" onclick="removeRequests(${request.id}, '${request.employee_name}', ${request.reimbursement_amount}, '${request.request_reason}')">Deny</button></td>`;
                 tbody.appendChild(newRow);
            }
         } else {

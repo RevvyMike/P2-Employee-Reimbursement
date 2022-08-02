@@ -12,7 +12,7 @@ Feature: Employee should be able to view previous reimbursement requests
         When    The employee types request reason into request reason input
         When    The employee types dollar amount into dollar request input
         When    Then employee clicks submit request button
-        Then    The employee should be ready to log out
+        # Then    The employee should be ready to log out
 
     Scenario: As an employee I want to log out
 
